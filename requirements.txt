@@ -1,2 +1,3 @@
+requests
 openreview-py
 beautifulsoup4

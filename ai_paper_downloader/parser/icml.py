@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 class ICMLParser:
     def __init__(self, html_file_path, year):
         self.html_file_path = html_file_path
-        self.year = year
+        self.year = int(year)
 
     def parse(self):
 

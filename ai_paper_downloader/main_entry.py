@@ -59,7 +59,7 @@ def main():
     print(f"Total papers found: {len(papers)}")
 
     # Define the CSV fields
-    csv_fields = ["Conference", "Year", "Filename", "Title", "Authors", "Category"]
+    csv_fields = ["Conference", "Year", "Filename", "Title", "Authors", "Category", "PDF_URL"]
 
     # Write CSV headers only if the file doesn't exist
     write_headers = not os.path.exists(csv_file_path)
@@ -113,6 +113,7 @@ def main():
                             paper["title"],
                             paper["authors"],
                             paper["category"],
+                            paper["pdf_url"],
                         ]
                     )
                     csv_file.flush()  # Ensure data is written immediately

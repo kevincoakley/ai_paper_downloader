@@ -1,14 +1,15 @@
 import sys
 import os
-import re
 import csv
 import requests
 import time
 from ai_paper_downloader import command_args
+from ai_paper_downloader import generate_safe_filename
 from ai_paper_downloader.parser.aaai import AAAIParser
 from ai_paper_downloader.parser.iclr import ICLRParser
 from ai_paper_downloader.parser.icml import ICMLParser
 from ai_paper_downloader.parser.neurips import NeurIPSParser
+
 
 def main():
     # Parse the command line arguments
@@ -59,7 +60,15 @@ def main():
     print(f"Total papers found: {len(papers)}")
 
     # Define the CSV fields
-    csv_fields = ["Conference", "Year", "Filename", "Title", "Authors", "Category", "PDF_URL"]
+    csv_fields = [
+        "Conference",
+        "Year",
+        "Filename",
+        "Title",
+        "Authors",
+        "Category",
+        "PDF_URL",
+    ]
 
     # Write CSV headers only if the file doesn't exist
     write_headers = not os.path.exists(csv_file_path)
@@ -78,10 +87,12 @@ def main():
         # Loop through the papers returned from the parser
         for paper in papers:
             # Generate a sanitized filename
-            sanitized_filename = re.sub(r"[^A-Za-z0-9]", "_", paper["title"]) + ".pdf"
+            safe_filename = generate_safe_filename.generate_safe_filename(
+                args.conference, args.year, paper["title"]
+            )
 
             # Define PDF file path
-            pdf_file_path = f"{download_path}/{sanitized_filename}"
+            pdf_file_path = f"{download_path}/{safe_filename}"
 
             # Skip if the command line argument is set to skip downloads
             if args.no_download_pdf:
@@ -97,7 +108,9 @@ def main():
                     }
 
                     # Download the PDF
-                    response = requests.get(paper["pdf_url"], headers=headers, stream=True)
+                    response = requests.get(
+                        paper["pdf_url"], headers=headers, stream=True
+                    )
                     response.raise_for_status()
                     with open(pdf_file_path, "wb") as pdf_file:
                         for chunk in response.iter_content(chunk_size=8192):
@@ -109,7 +122,7 @@ def main():
                         [
                             args.conference,
                             args.year,
-                            sanitized_filename,
+                            safe_filename,
                             paper["title"],
                             paper["authors"],
                             paper["category"],

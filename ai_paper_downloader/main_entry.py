@@ -90,6 +90,10 @@ def main():
         # Initialize the count
         count = 0
 
+        # Open a log file for failed downloads
+        failed_log_path = os.path.join(download_path, "failed_downloads.log")
+        failed_log = open(failed_log_path, "a", encoding="utf-8")
+
         # Loop through the papers returned from the parser
         for paper in papers:
             # Generate a sanitized filename
@@ -143,6 +147,8 @@ def main():
                     time.sleep(int(args.seconds_between_downloads))
                 except requests.exceptions.RequestException as e:
                     print(f"Failed to download {paper['title']}: {e}")
+                    failed_log.write(f"{paper['title']} | {paper['pdf_url']} | {e}\n")
+                    failed_log.flush()
                     continue
 
             count += 1
@@ -152,6 +158,8 @@ def main():
                 if count >= int(num_papers_to_download):
                     break
 
+    failed_log.close()
+    csv_file.close()
     print("========================================================================")
     print(f"Papers Processed: {count}")
     print("========================================================================")

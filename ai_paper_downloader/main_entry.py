@@ -57,7 +57,13 @@ def main():
     # Get the list of papers from the conference
     papers = parser.parse()
 
-    print(f"Total papers found: {len(papers)}")
+    total_papers = len(papers)
+    print(f"Total papers found: {total_papers}")
+
+    if int(args.num_papers_to_download) != -1:
+        num_papers_to_download = args.num_papers_to_download
+    else:
+        num_papers_to_download = total_papers
 
     # Define the CSV fields
     csv_fields = [
@@ -115,7 +121,9 @@ def main():
                     with open(pdf_file_path, "wb") as pdf_file:
                         for chunk in response.iter_content(chunk_size=8192):
                             pdf_file.write(chunk)
-                    print(f"Downloaded: {paper['title']} -> {pdf_file_path}")
+                    print(
+                        f"[{count+1}/{num_papers_to_download}] Downloaded: {paper['title']} -> {pdf_file_path}"
+                    )
 
                     # Write to CSV
                     csv_writer.writerow(
@@ -137,12 +145,12 @@ def main():
                     print(f"Failed to download {paper['title']}: {e}")
                     continue
 
-            # Stop after downloading the specified number of papers
-            if args.num_papers_to_download != -1:
-                if count >= int(args.num_papers_to_download):
-                    break
-
             count += 1
+
+            # Stop after downloading the specified number of papers
+            if int(args.num_papers_to_download) != -1:
+                if count >= int(num_papers_to_download):
+                    break
 
     print("========================================================================")
     print(f"Papers Processed: {count}")

@@ -16,6 +16,7 @@ def args(args):
             "AAAI",
             "ICLR",
             "ICML",
+            "IJCAI",
             "NeurIPS",
         ],
         required=True,

@@ -8,6 +8,7 @@ from ai_paper_downloader import generate_safe_filename
 from ai_paper_downloader.parser.aaai import AAAIParser
 from ai_paper_downloader.parser.iclr import ICLRParser
 from ai_paper_downloader.parser.icml import ICMLParser
+from ai_paper_downloader.parser.ijcai import IJCAIParser
 from ai_paper_downloader.parser.neurips import NeurIPSParser
 
 
@@ -47,6 +48,12 @@ def main():
 
         # Initialize the parser
         parser = ICMLParser(html_file_path, args.year)
+    elif args.conference == "IJCAI":
+        # Define the HTML file path
+        html_file_path = f"static_html/{args.conference}/{args.year}.html"
+
+        # Initialize the parser
+        parser = IJCAIParser(html_file_path, args.year)
     elif args.conference == "NeurIPS":
         # Define the HTML file path
         html_file_path = f"static_html/{args.conference}/{args.year}.html"

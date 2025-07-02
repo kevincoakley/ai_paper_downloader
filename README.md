@@ -1,6 +1,6 @@
 # ai_paper_downloader
 
-A tool to download AI research papers from various AI conferences (AAAI, ICLR, ICML, NeurIPS).
+A tool to download AI research papers from various AI conferences (AAAI, ICLR, ICML, IJCAI, NeurIPS).
 
 ## Installation (with uv)
 

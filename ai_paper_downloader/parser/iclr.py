@@ -48,7 +48,7 @@ class ICLRParser:
             # API V1
             # Fetch all **blind submissions** 
             if int(self.year) >= 2018:
-                submissions = client.get_all_notes(invitation=f"{conference_id}/-/Blind_Submission")
+                submissions = client.get_all_notes(invitation=f"{conference_id}/-/Blind_Submission", details='directReplies')
             else:
                 submissions = client.get_notes(invitation=f"{conference_id}/-/submission")
 
@@ -68,18 +68,42 @@ class ICLRParser:
                 venue = paper.content.get("venue", "No venue")
                 pdf_url = f"https://openreview.net/pdf?id={paper.id}"
 
+            # Set the category based on the venue and decision 
+            # Skip papers that were not accepted
             category = "None"
 
-            if "poster" in venue.lower():
-                category = "poster"
-            elif "oral" in venue.lower():
-                category = "oral"
-            elif "spotlight" in venue.lower():
-                category = "spotlight" 
-            elif "notable" in venue.lower():
-                category = "notable" 
-            elif "submitted" in venue.lower():
-                continue  # Skip papers that were not accepted
+            if API_VERSION == 1 and int(self.year) == 2017:
+                if "poster" in venue.lower():
+                    category = "poster"
+                elif "oral" in venue.lower():
+                    category = "oral"
+                elif "spotlight" in venue.lower():
+                    category = "spotlight" 
+                elif "notable" in venue.lower():
+                    category = "notable" 
+                elif "submitted" in venue.lower():
+                    continue  # Skip papers that were not accepted
+
+            if API_VERSION == 1 and int(self.year) >= 2018:
+                for reply in paper.details['directReplies']:
+                    #print(reply)
+                    print(title)
+                    if "/Acceptance_Decision" in reply["invitation"]:
+                        category = reply["content"]["decision"]
+                    if "/Decision" in reply["invitation"]:
+                        category = reply["content"]["decision"]
+                    if "/Meta_Review" in reply["invitation"]:
+                        category = reply["content"]["recommendation"]
+
+                # Skip papers that were rejected
+                if "reject" in category.lower():
+                    continue
+                elif category == "None":
+                    print(f"Paper without category, skipping {title}")
+                    continue
+
+            if API_VERSION == 2:
+                category = venue
 
             papers_metadata.append(
                 {

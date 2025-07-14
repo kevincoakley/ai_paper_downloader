@@ -94,61 +94,35 @@ class AAAIParser:
         with open(html_file_path, "r", encoding="utf-8") as file:
             soup = BeautifulSoup(file, "html.parser")
 
-        # Extract required elements
-        titles = soup.find_all("h5")
-        authors = soup.find_all("span", class_="papers-author-page")
-        pdf_links = soup.find_all("a", string="PDF")
-        categories = soup.find_all("div", class_="track-wrap")
-
-        # Extract category headers
-        category_headers = [
-            cat.find("h2").text.strip() for cat in categories if cat.find("h2")
-        ]
-
-        # Ensure at least one category
-        if not category_headers:
-            category_headers = ["Unknown"]
-
         papers_metadata = []
-        category_index = 0
-        papers_per_category = (
-            len(titles) // len(category_headers) if category_headers else 1
-        )
+        current_category = None
 
-        for i in range(len(titles)):
-            # Extract title
-            title_tag = titles[i].find("a")
-            title = title_tag.text.strip() if title_tag else "Unknown"
+        # Flattened top-to-bottom walk of all tags
+        for tag in soup.find_all(True):  # All tags, in order
+            # Update category when we hit a track-wrap
+            if tag.name == "div" and "track-wrap" in tag.get("class", []):
+                h2 = tag.find("h2")
+                current_category = h2.get_text(strip=True) if h2 else None
 
-            # Extract authors
-            author_tag = authors[i] if i < len(authors) else None
-            authors_text = author_tag.get_text(strip=True) if author_tag else "Unknown"
+            # Extract paper when we hit a paper-wrap
+            elif tag.name == "li" and "paper-wrap" in tag.get("class", []):
+                title_tag = tag.find("h5")
+                title = title_tag.get_text(strip=True) if title_tag else ""
 
-            # Extract PDF URL
-            pdf_tag = pdf_links[i] if i < len(pdf_links) else None
-            pdf_url = (
-                pdf_tag["href"] if pdf_tag and pdf_tag.has_attr("href") else "Unknown"
-            )
+                authors_tag = tag.find("span", class_="papers-author-page")
+                authors = authors_tag.get_text(strip=True) if authors_tag else ""
 
-            # Assign category
-            if (
-                i > 0
-                and i % papers_per_category == 0
-                and category_index < len(category_headers) - 1
-            ):
-                category_index += 1
+                pdf_tag = tag.find("a", class_="wp-block-button")
+                pdf_url = pdf_tag["href"] if pdf_tag and pdf_tag.has_attr("href") else ""
 
-            category = category_headers[category_index]
-
-            # Store metadata
-            papers_metadata.append(
-                {
+                papers_metadata.append({
                     "title": title,
-                    "authors": authors_text,
-                    "category": category,
+                    "authors": authors,
+                    "category": current_category,
                     "pdf_url": pdf_url,
-                }
-            )
+                })
+
+
 
         return papers_metadata
 

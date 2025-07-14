@@ -154,4 +154,11 @@ class IJCAIParser:
                         "pdf_url": pdf_url,
                     })
 
-        return papers_metadata
+        # Deduplicate papers by PDF URL (for 2020+)
+        unique = {}
+        for paper in papers_metadata:
+            key = paper["pdf_url"]
+            if key not in unique:
+                unique[key] = paper
+
+        return list(unique.values())

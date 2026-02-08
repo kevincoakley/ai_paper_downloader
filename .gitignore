@@ -1,8 +1,4 @@
-# Ignore Python bytecode files and Python package directories
-__pycache__/
-*.pyc
+.coverage
 .venv/
-ai_paper_downloader/ai_paper_downloader.egg-info/
-# Ignore project-specific files
 papers/
 openreview_pass.yaml

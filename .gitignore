@@ -2,7 +2,6 @@
 __pycache__/
 *.pyc
 .venv/
-uv.lock
 ai_paper_downloader/ai_paper_downloader.egg-info/
 # Ignore project-specific files
 papers/

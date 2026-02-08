@@ -1,10 +1,26 @@
 #!/usr/bin/env python
 
 import argparse
+from collections.abc import Sequence
+
+CONFERENCE_CHOICES = ("AAAI", "ICLR", "ICML", "IJCAI", "NeurIPS")
+YEAR_CHOICES = (
+    "2024",
+    "2023",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+)
 
 
-def args(args):
-
+def _build_parser() -> argparse.ArgumentParser:
+    """Create the CLI parser for paper download arguments."""
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -12,13 +28,7 @@ def args(args):
         dest="conference",
         help="Conference name to download papers from",
         default="none",
-        choices=[
-            "AAAI",
-            "ICLR",
-            "ICML",
-            "IJCAI",
-            "NeurIPS",
-        ],
+        choices=CONFERENCE_CHOICES,
         required=True,
     )
 
@@ -27,19 +37,7 @@ def args(args):
         dest="year",
         help="Year of the conference",
         default="none",
-        choices=[
-            "2024",
-            "2023",
-            "2022",
-            "2021",
-            "2020",
-            "2019",
-            "2018",
-            "2017",
-            "2016",
-            "2015",
-            "2014",
-        ],
+        choices=YEAR_CHOICES,
         required=True,
     )
 
@@ -75,4 +73,9 @@ def args(args):
         required=False,
     )
 
-    return parser.parse_args(args)
+    return parser
+
+
+def args(argv: Sequence[str]) -> argparse.Namespace:
+    """Parse command-line arguments."""
+    return _build_parser().parse_args(argv)

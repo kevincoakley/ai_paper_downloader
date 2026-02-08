@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 
 from bs4 import BeautifulSoup
+from bs4.element import Tag
 
 
 class AAAIParser:
-    def __init__(self, html_file_path, year):
+    """Parse AAAI proceedings HTML files into normalized paper metadata."""
+
+    def __init__(self, html_file_path: str, year: str):
         self.html_file_path = html_file_path
         self.year = int(year)
 
@@ -89,22 +92,22 @@ class AAAIParser:
             ],
         }
 
-    def parse_2014(self, html_file_path):
-        # Load and parse the HTML file
+    def parse_2014(self, html_file_path: str) -> list[dict[str, str]]:
+        """Parse legacy AAAI page structures used through 2022."""
         with open(html_file_path, "r", encoding="utf-8") as file:
             soup = BeautifulSoup(file, "html.parser")
 
-        papers_metadata = []
+        papers_metadata: list[dict[str, str]] = []
         current_category = None
 
-        # Flattened top-to-bottom walk of all tags
-        for tag in soup.find_all(True):  # All tags, in order
-            # Update category when we hit a track-wrap
+        for tag in soup.find_all(True):
+            if not isinstance(tag, Tag):
+                continue
+
             if tag.name == "div" and "track-wrap" in tag.get("class", []):
                 h2 = tag.find("h2")
                 current_category = h2.get_text(strip=True) if h2 else None
 
-            # Extract paper when we hit a paper-wrap
             elif tag.name == "li" and "paper-wrap" in tag.get("class", []):
                 title_tag = tag.find("h5")
                 title = title_tag.get_text(strip=True) if title_tag else ""
@@ -113,48 +116,52 @@ class AAAIParser:
                 authors = authors_tag.get_text(strip=True) if authors_tag else ""
 
                 pdf_tag = tag.find("a", class_="wp-block-button")
-                pdf_url = pdf_tag["href"] if pdf_tag and pdf_tag.has_attr("href") else ""
+                pdf_url = (
+                    pdf_tag["href"] if pdf_tag and pdf_tag.has_attr("href") else ""
+                )
 
-                papers_metadata.append({
-                    "title": title,
-                    "authors": authors,
-                    "category": current_category,
-                    "pdf_url": pdf_url,
-                })
-
-
+                papers_metadata.append(
+                    {
+                        "title": title,
+                        "authors": authors,
+                        "category": current_category,
+                        "pdf_url": pdf_url,
+                    }
+                )
 
         return papers_metadata
 
-    def parse_2023(self, html_file_path):
+    def parse_2023(self, html_file_path: str) -> list[dict[str, str]]:
+        """Parse modern AAAI page structures used in 2023+."""
         with open(html_file_path, "r", encoding="utf-8") as file:
             soup = BeautifulSoup(file, "html.parser")
 
-        papers_metadata = []
+        papers_metadata: list[dict[str, str]] = []
 
-        # Find all sections with categories
         sections = soup.find_all("div", class_="section")
 
         for section in sections:
+            if not isinstance(section, Tag):
+                continue
+
             category = (
                 section.find("h2").text.strip()
                 if section.find("h2")
                 else "Unknown Category"
             )
 
-            # Find all articles in the section
             articles = section.find_all("div", class_="obj_article_summary")
 
             for article in articles:
-                # Extract title
+                if not isinstance(article, Tag):
+                    continue
+
                 title_tag = article.find("h3", class_="title").find("a")
                 title = title_tag.text.strip() if title_tag else "Unknown Title"
 
-                # Extract authors
                 authors_tag = article.find("div", class_="authors")
                 authors = authors_tag.text.strip() if authors_tag else "Unknown Authors"
 
-                # Extract PDF URL
                 pdf_tag = article.find("a", class_="obj_galley_link pdf")
                 pdf_url = pdf_tag["href"] if pdf_tag else "No PDF available"
 
@@ -169,9 +176,9 @@ class AAAIParser:
 
         return papers_metadata
 
-    def parse(self):
-
-        papers_metadata = []
+    def parse(self) -> list[dict[str, str]]:
+        """Parse all configured AAAI HTML files for the selected year."""
+        papers_metadata: list[dict[str, str]] = []
 
         if self.year <= 2022:
             for html_file in self.html_files[self.year]:

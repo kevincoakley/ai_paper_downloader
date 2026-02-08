@@ -27,15 +27,17 @@
 │       ├── icml.py               # Parser for ICML conference
 │       ├── ijcai.py              # Parser for IJCAI conference
 │       └── neurips.py            # Parser for NeurIPS conference
+├── download_papers.py            # Script to run the paper downloading process
 ├── openreview_pass.yaml          # YAML file for OpenReview credentials (required for ICLR)
+├── papers/                       # Directory where downloaded papers will be saved
 ├── pyproject.toml                # Project configuration
 ├── README.md                     # Project description
 ├── static_html
-│   ├── AAAI                      # Directory of static HTML from the proceedings of the AAAI conference
-│   ├── ICLR                      # Directory of static HTML from the proceedings of the ICLR conference
-│   ├── ICML                      # Directory of static HTML from the proceedings of the ICML conference
-│   ├── IJCAI                     # Directory of static HTML from the proceedings of the IJCAI conference
-│   └── NeurIPS                   # Directory of static HTML from the proceedings of the NeurIPS conference
+│   ├── AAAI/                     # Directory of static HTML from the proceedings of the AAAI conference
+│   ├── ICLR/                     # Directory of static HTML from the proceedings of the ICLR conference
+│   ├── ICML/                     # Directory of static HTML from the proceedings of the ICML conference
+│   ├── IJCAI/                    # Directory of static HTML from the proceedings of the IJCAI conference
+│   └── NeurIPS/                  # Directory of static HTML from the proceedings of the NeurIPS conference
 ├── tests/                        # Directory for test files
 └── uv.lock                       # Lock file for dependencies
 ```
@@ -81,6 +83,9 @@ Always use `uv` for package management and script execution.
 - Follow PEP 8 conventions
 - Use type hints where appropriate
 - Write docstrings for functions and classes
+
+### Commenting
+- Use clear and concise comments to explain non-obvious code
 
 ### Type Hinting
 - Use standard Python type hints for function arguments and return values.

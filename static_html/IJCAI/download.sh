@@ -1,3 +1,4 @@
+wget https://www.ijcai.org/proceedings/2025/ -O 2025.html
 wget https://www.ijcai.org/proceedings/2024/ -O 2024.html
 wget https://www.ijcai.org/proceedings/2023/ -O 2023.html
 wget https://www.ijcai.org/proceedings/2022/ -O 2022.html

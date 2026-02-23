@@ -86,6 +86,8 @@ Always use `uv` for package management and script execution.
 
 ### Commenting
 - Use clear and concise comments to explain non-obvious code
+- Use docstrings for all public modules, functions, classes, and methods
+
 
 ### Type Hinting
 - Use standard Python type hints for function arguments and return values.

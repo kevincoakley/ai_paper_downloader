@@ -1,3 +1,4 @@
+wget https://proceedings.mlr.press/v267 -O 2025.html
 wget https://proceedings.mlr.press/v235 -O 2024.html
 wget https://proceedings.mlr.press/v202 -O 2023.html
 wget https://proceedings.mlr.press/v162 -O 2022.html

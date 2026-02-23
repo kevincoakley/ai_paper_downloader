@@ -5,6 +5,7 @@ from collections.abc import Sequence
 
 CONFERENCE_CHOICES = ("AAAI", "ICLR", "ICML", "IJCAI", "NeurIPS")
 YEAR_CHOICES = (
+    "2025",
     "2024",
     "2023",
     "2022",

@@ -3,7 +3,7 @@
 import argparse
 from collections.abc import Sequence
 
-CONFERENCE_CHOICES = ("AAAI", "ICLR", "ICML", "IJCAI", "NeurIPS")
+CONFERENCE_CHOICES = ("AAAI", "ICLR", "ICML", "IJCAI", "JAIR", "JMLR", "NeurIPS")
 YEAR_CHOICES = (
     "2025",
     "2024",

@@ -1,6 +1,6 @@
 # ai_paper_downloader
 
-A tool to download AI research papers from various AI conferences (AAAI, ICLR, ICML, IJCAI, NeurIPS).
+A tool to download AI research papers from various AI conferences/journals (AAAI, ICLR, ICML, IJCAI, JAIR, JMLR, NeurIPS).
 
 ## Installation (with uv)
 
@@ -14,7 +14,7 @@ A tool to download AI research papers from various AI conferences (AAAI, ICLR, I
 Run with the script entrypoint:
 
 ```sh
-uv run download_papers.py --conference ICLR --year 2014 --save-dir papers
+uv run download_papers.py --conference JAIR --year 2024 --save-dir papers
 ```
 
 See `uv run download_papers.py -h` for all available arguments.

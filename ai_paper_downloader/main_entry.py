@@ -13,6 +13,8 @@ from ai_paper_downloader.parser.aaai import AAAIParser
 from ai_paper_downloader.parser.iclr import ICLRParser
 from ai_paper_downloader.parser.icml import ICMLParser
 from ai_paper_downloader.parser.ijcai import IJCAIParser
+from ai_paper_downloader.parser.jair import JAIRParser
+from ai_paper_downloader.parser.jmlr import JMLRParser
 from ai_paper_downloader.parser.neurips import NeurIPSParser
 
 CSV_FIELDS = [
@@ -50,12 +52,15 @@ def _create_parser(conference: str, year: str) -> Any:
     """Create the conference-specific parser instance for the requested year."""
     if conference == "AAAI":
         return AAAIParser(f"static_html/{conference}", year)
+    if conference == "JAIR":
+        return JAIRParser(f"static_html/{conference}", year)
 
     html_file_path = f"static_html/{conference}/{year}.html"
     parser_map = {
         "ICLR": ICLRParser,
         "ICML": ICMLParser,
         "IJCAI": IJCAIParser,
+        "JMLR": JMLRParser,
         "NeurIPS": NeurIPSParser,
     }
     return parser_map[conference](html_file_path, year)

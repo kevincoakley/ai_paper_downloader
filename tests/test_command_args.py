@@ -18,3 +18,15 @@ def test_no_download_pdf_flag_sets_false():
     )
 
     assert parsed.no_download_pdf is False
+
+
+def test_jair_is_supported_conference_choice():
+    parsed = command_args.args(["--conference", "JAIR", "--year", "2024"])
+
+    assert parsed.conference == "JAIR"
+
+
+def test_jmlr_is_supported_conference_choice():
+    parsed = command_args.args(["--conference", "JMLR", "--year", "2024"])
+
+    assert parsed.conference == "JMLR"

@@ -36,8 +36,11 @@
 │   ├── AAAI/                     # Directory of static HTML from the proceedings of the AAAI conference
 │   ├── ICLR/                     # Directory of static HTML from the proceedings of the ICLR conference
 │   ├── ICML/                     # Directory of static HTML from the proceedings of the ICML conference
+│   ├── JAIR/                     # Directory of static HTML from the proceedings of the JAIR journal
+│   ├── JMLR/                     # Directory of static HTML from the proceedings of the JMLR journal
 │   ├── IJCAI/                    # Directory of static HTML from the proceedings of the IJCAI conference
-│   └── NeurIPS/                  # Directory of static HTML from the proceedings of the NeurIPS conference
+│   ├── NeurIPS/                  # Directory of static HTML from the proceedings of the NeurIPS conference
+│   └── TMLR/                     # Directory of static HTML from the proceedings of the JAIR journal
 ├── tests/                        # Directory for test files
 └── uv.lock                       # Lock file for dependencies
 ```

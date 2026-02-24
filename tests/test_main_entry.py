@@ -236,3 +236,35 @@ def test_main_logs_failed_download_and_continues(monkeypatch, tmp_path, capsys):
         ],
     ]
     assert "Papers Processed: 1" in capsys.readouterr().out
+
+
+def test_create_parser_for_jair_uses_static_directory(monkeypatch):
+    captured = {}
+
+    class FakeJAIRParser:
+        def __init__(self, html_file_path, year):
+            captured["html_file_path"] = html_file_path
+            captured["year"] = year
+
+    monkeypatch.setattr(main_entry, "JAIRParser", FakeJAIRParser)
+
+    parser = main_entry._create_parser("JAIR", "2024")
+
+    assert isinstance(parser, FakeJAIRParser)
+    assert captured == {"html_file_path": "static_html/JAIR", "year": "2024"}
+
+
+def test_create_parser_for_jmlr_uses_single_html_file(monkeypatch):
+    captured = {}
+
+    class FakeJMLRParser:
+        def __init__(self, html_file_path, year):
+            captured["html_file_path"] = html_file_path
+            captured["year"] = year
+
+    monkeypatch.setattr(main_entry, "JMLRParser", FakeJMLRParser)
+
+    parser = main_entry._create_parser("JMLR", "2024")
+
+    assert isinstance(parser, FakeJMLRParser)
+    assert captured == {"html_file_path": "static_html/JMLR/2024.html", "year": "2024"}

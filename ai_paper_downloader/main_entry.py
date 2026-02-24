@@ -16,6 +16,7 @@ from ai_paper_downloader.parser.ijcai import IJCAIParser
 from ai_paper_downloader.parser.jair import JAIRParser
 from ai_paper_downloader.parser.jmlr import JMLRParser
 from ai_paper_downloader.parser.neurips import NeurIPSParser
+from ai_paper_downloader.parser.tmlr import TMLRParser
 
 CSV_FIELDS = [
     "Conference",
@@ -54,6 +55,8 @@ def _create_parser(conference: str, year: str) -> Any:
         return AAAIParser(f"static_html/{conference}", year)
     if conference == "JAIR":
         return JAIRParser(f"static_html/{conference}", year)
+    if conference == "TMLR":
+        return TMLRParser(f"static_html/{conference}", year)
 
     html_file_path = f"static_html/{conference}/{year}.html"
     parser_map = {

@@ -30,3 +30,10 @@ def test_jmlr_is_supported_conference_choice():
     parsed = command_args.args(["--conference", "JMLR", "--year", "2024"])
 
     assert parsed.conference == "JMLR"
+
+
+def test_tmlr_is_supported_conference_choice():
+    parsed = command_args.args(["--conference", "TMLR", "--year", "2026"])
+
+    assert parsed.conference == "TMLR"
+    assert parsed.year == "2026"

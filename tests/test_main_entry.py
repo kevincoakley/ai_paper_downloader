@@ -268,3 +268,19 @@ def test_create_parser_for_jmlr_uses_single_html_file(monkeypatch):
 
     assert isinstance(parser, FakeJMLRParser)
     assert captured == {"html_file_path": "static_html/JMLR/2024.html", "year": "2024"}
+
+
+def test_create_parser_for_tmlr_uses_static_directory(monkeypatch):
+    captured = {}
+
+    class FakeTMLRParser:
+        def __init__(self, html_file_path, year):
+            captured["html_file_path"] = html_file_path
+            captured["year"] = year
+
+    monkeypatch.setattr(main_entry, "TMLRParser", FakeTMLRParser)
+
+    parser = main_entry._create_parser("TMLR", "2026")
+
+    assert isinstance(parser, FakeTMLRParser)
+    assert captured == {"html_file_path": "static_html/TMLR", "year": "2026"}

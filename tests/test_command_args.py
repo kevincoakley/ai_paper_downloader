@@ -37,3 +37,9 @@ def test_tmlr_is_supported_conference_choice():
 
     assert parsed.conference == "TMLR"
     assert parsed.year == "2026"
+
+
+def test_dmlr_is_supported_conference_choice():
+    parsed = command_args.args(["--conference", "DMLR", "--year", "2025"])
+
+    assert parsed.conference == "DMLR"

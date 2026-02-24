@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Search Engine Info --><!-- Solution from http://stackoverflow.com/questions/31593297/using-execcommand-javascript-to-copy-hidden-text-to-clipboard -->
+<script src="https://data.mlr.press/assets/js/copy_input.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://data.mlr.press/assets/js/download.js"></script>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Volume 1 | Data-centric Machine Learning Research</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Volume 1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is the first volume." />
+<meta property="og:description" content="This is the first volume." />
+<link rel="canonical" href="https://data.mlr.press/volumes/01.html" />
+<meta property="og:url" content="https://data.mlr.press/volumes/01.html" />
+<meta property="og:site_name" content="Data-centric Machine Learning Research" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-07T21:47:47+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Volume 1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-07T21:47:47+00:00","datePublished":"2025-12-07T21:47:47+00:00","description":"This is the first volume.","headline":"Volume 1","mainEntityOfPage":{"@type":"WebPage","@id":"https://data.mlr.press/volumes/01.html"},"url":"https://data.mlr.press/volumes/01.html"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- Style Info -->
+  <link rel="stylesheet" type="text/css" href="https://data.mlr.press/assets/css/dmlr.css" />
+  <style>.hero-text {
+    color: #303030;
+  }</style>
+
+  <!-- Icon Info -->
+  <link rel="shortcut icon" href="https://data.mlr.press/assets/images/favicon-dmlr.ico" type="image/x-icon">
+  <link rel="icon" href="https://data.mlr.press/assets/images/favicon-dmlr.ico" type="image/x-icon">
+
+  <!-- Feed Info --><link type="application/atom+xml" rel="alternate" href="https://data.mlr.press/feed.xml" title="Data-centric Machine Learning Research" /><!-- Scripting info --><!-- Solution from http://stackoverflow.com/questions/31593297/using-execcommand-javascript-to-copy-hidden-text-to-clipboard -->
+<script src="https://data.mlr.press/assets/js/copy_input.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://data.mlr.press/assets/js/download.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSHDZCVT9S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NSHDZCVT9S');
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+          autoNumber: "AMS"
+        }
+      },
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script  async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <!-- User custom header -->
+</head>
+
+
+
+
+
+
+<body>
+
+
+<header class="site-header">
+  <div class="wrapper">
+    
+
+
+<div class="hero-image">
+  <div class="hero-text">
+    <a id="top" href="/" target="_top"><img src="/assets/images/logo-dmlr.svg" alt="[ Logo]"></a>
+    Data-centric Machine Learning Research
+  </div>
+</div>
+
+
+    <nav class="site-nav">
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger">
+  <span class="menu-icon"><svg viewBox="0 0 18 15" width="18px" height="15px">
+  <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+</svg>
+</span>
+  </label>
+  <div class="trigger" style="line-height:40px;">
+    <a class="page-link" href="/">Home</a>
+    <a class="page-link" href="/submissions.html">Submission</a>
+    <a class="page-link" href="/special-track.html">Special Track</a>
+    <a class="page-link" href="/papers.html">Papers</a>
+    <a class="page-link" href="/reviewer-guidelines.html">Reviewer Guidelines</a>
+    <a class="page-link" href="/editor-guidelines.html">Editor Guidelines</a>
+    <a class="page-link" href="http://tmlr.org/">TMLR</a>
+    <a class="page-link" href="http://proceedings.mlr.press/">PMLR</a> 
+    <a class="page-link" href="http://www.jmlr.org/">JMLR</a> 
+    <a class="page-link" href="http://www.jmlr.org/mloss">MLOSS</a>
+  </div>
+</nav>
+
+
+
+  </div>
+</header>
+
+
+
+
+
+<main class="page-content" aria-label="Content"><div class="wrapper">
+
+
+<p style="text-align:right">[<a href="https://github.com/mlr-datasets/mlr-datasets.github.io/edit/master/_volumes/01.md" target="_blank" onclick="ga('send', 'event', 'Edit Page', 'Edit', 'https://github.com/mlr-datasets/mlr-datasets.github.io/edit/master/_volumes/01.md', 13);">edit</a>]</p>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Volume 1</h1>
+  </header>
+
+  <div class="post-content">
+    <p>This is the first volume.</p>
+
+
+
+
+<ul class="list-papers list-group list-group-flush">
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Building Better Datasets: Seven Recommendations for Responsible Design from Dataset Creators
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Will Orr</i></b>,
+              <b><i>Kate Crawford</i></b>, (1):1−21, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>The increasing demand for high-quality datasets in machine learning has raised concerns about the ethical and responsible creation of these datasets. Dataset creators play a crucial role in developing responsible practices, yet their perspectives and expertise have not yet been highlighted in the current literature. In this paper, we bridge this gap by presenting insights from a qualitative study that included interviewing 18 leading dataset creators about the current state of the field. We shed light on the challenges and considerations faced by dataset creators, and our findings underscore the potential for deeper collaboration, knowledge sharing, and collective development. Through a close analysis of their perspectives, we share seven central recommendations for improving responsible dataset creation, including issues such as data quality, documentation, privacy and consent, and how to mitigate potential harms from unintended use cases. By fostering critical reflection and sharing the experiences of dataset creators, we aim to promote responsible dataset creation practices and develop a nuanced understanding of this crucial but often undervalued aspect of machine learning research.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-1.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-1.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Benchmarking Robustness of Multimodal Image-Text Models under Distribution Shift
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Jielin Qiu</i></b>,
+              <b><i>Yi Zhu</i></b>,
+              <b><i>Xingjian Shi</i></b>,
+              <b><i>Florian Wenzel</i></b>,
+              <b><i>Zhiqiang Tang</i></b>,
+              <b><i>Ding Zhao</i></b>,
+              <b><i>Bo Li</i></b>,
+              <b><i>Mu Li</i></b>, (2):1−56, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Multimodal image-text models have shown remarkable performance in the past few years.  However, evaluating robustness against distribution shifts is crucial before adopting them in real-world applications. In this work, we investigate the robustness of 12 popular open-sourced image-text models under common perturbations on five tasks (image-text retrieval, visual reasoning, visual entailment, image captioning, and text-to-image generation). In particular, we propose several new multimodal robustness benchmarks by applying 17 image perturbation and 16 text perturbation techniques on top of existing datasets.  We observe that multimodal models are not robust to image and text perturbations, especially to image perturbations. Among the tested perturbation methods, character-level perturbations constitute the most severe distribution shift for text, and zoom blur is the most severe shift for image data.  We also introduce two new robustness metrics (<em>MMI</em> for MultiModal Impact score and <em>MOR</em> for Missing Object Rate) for proper evaluations of multimodal models. We hope our extensive study sheds light on new directions for the development of robust multimodal models.  More details can be found on the project webpage: <a href="https://MMRobustness.github.io">https://MMRobustness.github.io</a>.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-2.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-2.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Rethinking Symbolic Regression Datasets and Benchmarks for Scientific Discovery
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Yoshitomo Matsubara</i></b>,
+              <b><i>Naoya Chiba</i></b>,
+              <b><i>Ryo Igarashi</i></b>,
+              <b><i>Yoshitaka Ushiku</i></b>, (3):1−38, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>This paper revisits datasets and evaluation criteria for Symbolic Regression (SR), specifically focused on its potential for scientific discovery. Focused on a set of formulas used in the existing datasets based on Feynman Lectures on Physics, we recreate 120 datasets to discuss the performance of symbolic regression for scientific discovery (SRSD). For each of the 120 SRSD datasets, we carefully review the properties of the formula and its variables to design reasonably realistic sampling ranges of values so that our new SRSD datasets can be used for evaluating the potential of SRSD such as whether or not an SR method can (re)discover physical laws from such datasets. We also create another 120 datasets that contain dummy variables to examine whether SR methods can choose necessary variables only. Besides, we propose to use normalized edit distances (NED) between a predicted equation and the true equation trees for addressing a critical issue that existing SR metrics are either binary or errors between the target values and an SR model’s predicted values for a given input. We conduct benchmark experiments on our new SRSD datasets using various representative SR methods. The experimental results show that we provide a more realistic performance evaluation, and our user study shows that the NED correlates with human judges significantly more than an existing SR metric. We publish repositories of our code and 240 SRSD datasets.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-3.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-3.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        The Nine Lives of ImageNet: A Sociotechnical Retrospective of a Foundation Dataset and the Limits of Automated Essentialism
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Sasha Luccioni</i></b>,
+              <b><i>Kate Crawford</i></b>, (4):1−18, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>ImageNet is the most cited and well-known dataset for training image classification models. The people categories of its original version from 2009 have been found to be highly problematic (e.g. Crawford and Paglen (2019); Prabhu and Birhane (2020)) and have since been updated to improve their representativity (Yang et al., 2020). In this paper, we examine the past and present versions of the dataset from a variety of quantitative and qualitative angles and note several technical, epistemological and institutional issues, including duplicates, erroneous images, dehumanizing content, and lack of consent. We also discuss the concepts of ‘safety’ and ‘imageability’, which were established as criteria for filtering the people categories of the most recent version of ImageNet 21K. We conclude with a discussion of automated essentialism, the fundamental ethical problem that arises when datasets categorize human identity into a set number of discrete categories based on visual characteristics alone. We end with a call upon the ML community to reassess how training datasets that include human subjects are created and used.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-4.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-4.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        DMLR: Data-centric Machine Learning Research - Past, Present and Future
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Luis Oala</i></b>,
+              <b><i>Manil Maskey</i></b>,
+              <b><i>Lilith Bat-Leah</i></b>,
+              <b><i>Alicia Parrish</i></b>,
+              <b><i>Nezihe Merve Gürel</i></b>,
+              <b><i>Tzu-Sheng Kuo</i></b>,
+              <b><i>Yang Liu</i></b>,
+              <b><i>Rotem Dror</i></b>,
+              <b><i>Danilo Brajovic</i></b>,
+              <b><i>Xiaozhe Yao</i></b>,
+              <b><i>Max Bartolo</i></b>,
+              <b><i>William A Gaviria Rojas</i></b>,
+              <b><i>Ryan Hileman</i></b>,
+              <b><i>Rainier Aliment</i></b>,
+              <b><i>Michael W. Mahoney</i></b>,
+              <b><i>Meg Risdal</i></b>,
+              <b><i>Matthew Lease</i></b>,
+              <b><i>Wojciech Samek</i></b>,
+              <b><i>Debojyoti Dutta</i></b>,
+              <b><i>Curtis G Northcutt</i></b>,
+              <b><i>Cody Coleman</i></b>,
+              <b><i>Braden Hancock</i></b>,
+              <b><i>Bernard Koch</i></b>,
+              <b><i>Girmaw Abebe Tadesse</i></b>,
+              <b><i>Bojan Karlaš</i></b>,
+              <b><i>Ahmed Alaa</i></b>,
+              <b><i>Adji Bousso Dieng</i></b>,
+              <b><i>Natasha Noy</i></b>,
+              <b><i>Vijay Janapa Reddi</i></b>,
+              <b><i>James Zou</i></b>,
+              <b><i>Praveen Paritosh</i></b>,
+              <b><i>Mihaela van der Schaar</i></b>,
+              <b><i>Kurt Bollacker</i></b>,
+              <b><i>Lora Aroyo</i></b>,
+              <b><i>Ce Zhang</i></b>,
+              <b><i>Joaquin Vanschoren</i></b>,
+              <b><i>Isabelle Guyon</i></b>,
+              <b><i>Peter Mattson</i></b>, (5):1−27, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Drawing from discussions at the inaugural DMLR workshop at ICML 2023 and meetings prior, in this report we outline the relevance of community engagement and infrastructure development for the creation of next-generation public datasets that will advance machine learning science. We chart a path forward as a collective effort to sustain the creation and maintenance of these datasets and methods towards positive scientific, societal and business impact.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-5.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-5.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Detecting Errors in a Numerical Response via any Regression Model
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Hang Zhou</i></b>,
+              <b><i>Jonas Mueller</i></b>,
+              <b><i>Mayank Kumar</i></b>,
+              <b><i>Jane-Ling Wang</i></b>,
+              <b><i>Jing Lei</i></b>, (6):1−25, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Noise plagues many numerical datasets, where the recorded values in the data may fail to match the true underlying values due to reasons including: erroneous sensors, data entry/processing mistakes, or imperfect human estimates. We consider general regression settings with covariates and a potentially corrupted response whose observed values may contain errors. By accounting for various uncertainties, we introduced veracity scores that distinguish between genuine errors and natural data fluctuations, conditioned on the available covariate information in the dataset. We propose a simple yet efficient filtering procedure for eliminating potential errors, and establish theoretical guarantees for our method. We also contribute a new error detection benchmark involving 5 regression datasets with real-world numerical errors (for which the true values are also known). In this benchmark and additional simulation studies, our method identifies incorrect values with better precision/recall than other approaches.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-6.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-6.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        LabelBench: A Comprehensive Framework for Benchmarking Adaptive Label-Efficient Learning
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Jifan Zhang</i></b>,
+              <b><i>Yifang Chen</i></b>,
+              <b><i>Gregory Canal</i></b>,
+              <b><i>Arnav Mohanty Das</i></b>,
+              <b><i>Gantavya Bhatt</i></b>,
+              <b><i>Stephen Mussmann</i></b>,
+              <b><i>Yinglun Zhu</i></b>,
+              <b><i>Jeff Bilmes</i></b>,
+              <b><i>Simon Shaolei Du</i></b>,
+              <b><i>Kevin Jamieson</i></b>,
+              <b><i>Robert D Nowak</i></b>, (7):1−43, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Labeled data are critical to modern machine learning applications, but obtaining labels can be expensive. To mitigate this cost, machine learning methods, such as transfer learning, semi-supervised learning and active learning, aim to be <em>label-efficient</em>: achieving high predictive performance from relatively few labeled examples. While obtaining the best label-efficiency in practice often requires combinations of these techniques, existing benchmark and evaluation frameworks do not capture a concerted combination of all such techniques. This paper addresses this deficiency by introducing LabelBench, a new computationally-efficient framework for joint evaluation of multiple label-efficient learning techniques. As an application of LabelBench, we introduce a novel benchmark of state-of-the-art active learning methods in combination with semi-supervised learning for fine-tuning pretrained vision transformers. Our benchmark demonstrates significantly better label-efficiencies than previously reported in active learning. LabelBench’s modular codebase is open-sourced for the broader community to contribute label-efficient learning methods and benchmarks. The repository can be found at: <a href="https://github.com/EfficientTraining/LabelBench">https://github.com/EfficientTraining/LabelBench</a>.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-7.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-7.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Highlighting Challenges of State-of-the-Art Semantic Segmentation with HAIR - A Dataset of Historical Aerial Images
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Saeid Shamsaliei</i></b>,
+              <b><i>Odd Erik Gundersen</i></b>,
+              <b><i>Knut Tore Alfredsen</i></b>,
+              <b><i>Jo Halvard Halleraker</i></b>,
+              <b><i>Anders Foldvik</i></b>, (8):1−31, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>We present HAIR, the first dataset of expert-annotated historical aerial images covering different spatial regions spanning several decades. Historical aerial images are a treasure trove of insights into how the world has changed over the last hundred years. Understanding this change is especially important for investigating, among others, the impact of human development on biodiversity. The knowledge contained in these images, however, has not yet been fully unlocked, as this requires semantic segmentation models that are optimized for this type of data. Current models are developed for modern color images, and they do not perform well in historical data that is typically in grayscale. Furthermore, there is no benchmark historical grayscale aerial data that can be used to develop specific segmentation models for it. We here assess the issues of using semantic segmentation models designed for modern color images in historic grayscale data, and introduce HAIR as the first benchmark dataset of large-scale historical aerial grayscale images. HAIR contains ~9*10^9 pixels of high-resolution aerial land images covering the years within the period 1947 - 1998, with detailed annotations performed by domain experts. By using HAIR, we show that pre-training on modern satellite images converted to grayscale does not improve the performance compared to training only on historic aerial grayscale data, stressing the relevance of using actual historical and grayscale aerial data for these studies. We further show that state-of-the-art models underperform when trained on grayscale data compared to using the same data in color, and discuss the challenges faced by these models when applied directly to aerial grayscale data. Overall, HAIR appears as a powerful tool to aid in developing segmentation models that are able to extract the rich and valuable information from historical grayscale images.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-8.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-8.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        NAFlora-1M: Continental-Scale High-Resolution Fine-Grained Plant Classification Dataset
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>John Park</i></b>,
+              <b><i>Riccardo de Lutio</i></b>,
+              <b><i>Brendan Rappazzo</i></b>,
+              <b><i>Barbara Ambrose</i></b>,
+              <b><i>Fabian Michelangeli</i></b>,
+              <b><i>Kimberly Watson</i></b>,
+              <b><i>Serge Belongie</i></b>,
+              <b><i>Damon Little</i></b>, (9):1−21, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>The plant kingdom exhibits remarkable diversity that must be maintained for global ecosystem sustainability. However, plant life is currently disproportionately disappearing at a rapid rate, putting many essential functions—such as ecosystem production, resistance, and resilience—at risk. Plant specimen identification—the first step of plant biodiversity research—is heavily bottlenecked by a shortage of qualified experts. The botanical community has imaged large volumes of annotated physical herbarium specimens, which present a huge potential for building artificial intelligence systems that can assist researchers. In this paper, we present a novel large–scale, fine–grained dataset, NAFlora-1M, which consists of 1,050,182 hebarium images covering 15,501 North American vascular plant species (90% of the known species). Addressing gaps from previous research efforts, NAFlora-1M is the first–ever dataset to closely replicate the real–world task of herbarium specimen identification, as the dataset is intended to cover as many of the taxa in North America as possible. We highlight some key characteristics of NAFlora-1M from a machine learning dataset perspective: high–quality labels rigorously peer–reviewed by experts; hierarchical class structure; long–tailed and imbalanced class distribution; high image resolution; and extensive image quality control for consistent scale and color. In addition, we present several baseline models, along with benchmarking results from a Kaggle competition: A total of 134 teams benchmarked the dataset in a total of 1,663 submissions; the leading team achieved an 87.66% macro-F score with a 1–billion–parameter ensemble model—leaving substantial room for future improvement in both performance and efficiency. We believe that NAFlora-1M is an excellent starting point to encourage the development of botanical AI applications, thereby facilitating enhanced monitoring of plant diversity and conservation efforts. The dataset and training scripts are available at https://github.com/dpl10/NAFlora-1M.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-9.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-9.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        You can't handle the (dirty) truth: Data-centric Insights Improve Pseudo-Labeling
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Nabeel Seedat</i></b>,
+              <b><i>Nicolas Huynh</i></b>,
+              <b><i>Fergus Imrie</i></b>,
+              <b><i>Mihaela van der Schaar</i></b>, (10):1−21, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Pseudo-labeling is a popular semi-supervised learning technique to leverage unlabeled data when labeled samples are scarce. The generation and selection of pseudo-labels heavily rely on labeled data. Existing approaches implicitly assume that the labeled data is gold standard and “perfect”. However, this can be violated in reality with issues such as mislabeling or ambiguity. We address this overlooked aspect and show the importance of investigating labeled data quality to improve any pseudo-labeling method. Specifically, we introduce a novel data characterization and selection framework called DIPS to extend pseudo-labeling. We select useful labeled and pseudo-labeled samples via analysis of learning dynamics. We demonstrate the applicability and impact of DIPS for various pseudo-labeling methods across an extensive range of real-world tabular and image datasets. Additionally, DIPS improves data efficiency and reduces the performance distinctions between different pseudo-labelers. Overall, we highlight the significant benefits of a data-centric rethinking of pseudo-labeling in real-world settings.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-10.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-10.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        GlycoNMR: Dataset and Benchmark of Carbohydrate-Specific NMR Chemical Shift for Machine Learning Research
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Zizhang Chen</i></b>,
+              <b><i>Ryan Paul Badman</i></b>,
+              <b><i>Bethany Lachele Foley</i></b>,
+              <b><i>Robert J Woods</i></b>,
+              <b><i>Pengyu Hong</i></b>, (11):1−37, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Molecular representation learning (MRL) is a powerful contribution by machine learning tochemistry as it converts molecules into numerical representations, which is fundamental fordiverse downstream applications, such as property prediction and drug design. While MRLhas had great success with proteins and general biomolecules, it has yet to be exploredfor carbohydrates in the growing fields of glycoscience and glycomaterials (the study anddesign of carbohydrates). This under-exploration can be primarily attributed to the limitedavailability of comprehensive and well-curated carbohydrate-specific datasets and a lackof machine learning (ML) techniques tailored to meet the unique problems presentedby carbohydrate data. Interpreting and annotating carbohydrate data is generally morecomplicated than protein data and requires substantial domain knowledge. In addition,existing MRL methods were predominately optimized for proteins and small biomoleculesand may not be effective for carbohydrate applications without special modifications. Toaddress this challenge, accelerate progress in glycoscience and glycomaterials, and enrichthe data resources of the ML community, we introduce GlycoNMR. GlycoNMR containstwo laboriously curated datasets with 2,609 carbohydrate structures and 211,543 annotatednuclear magnetic resonance (NMR) atomic-level chemical shifts that can be used to trainML models for precise atomic-level prediction. NMR data is one of the most appealingstarting points for developing ML techniques to facilitate glycoscience and glycomaterialsresearch, as NMR is the preeminent technique in carbohydrate structure research, andbiomolecule structure is among the foremost predictors of functions and properties. Wetailored a set of carbohydrate-specific features and adapted existing 3D-based graph neuralnetworks to tackle the problem of predicting NMR shifts effectively. For illustration, webenchmark these modified MRL models on GlycoNMR.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-11.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-11.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Datasets and Benchmarks for Offline Safe Reinforcement Learning
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Zuxin Liu</i></b>,
+              <b><i>Zijian Guo</i></b>,
+              <b><i>Haohong Lin</i></b>,
+              <b><i>Yihang Yao</i></b>,
+              <b><i>Jiacheng Zhu</i></b>,
+              <b><i>Zhepeng Cen</i></b>,
+              <b><i>Hanjiang Hu</i></b>,
+              <b><i>Wenhao Yu</i></b>,
+              <b><i>Tingnan Zhang</i></b>,
+              <b><i>Jie Tan</i></b>,
+              <b><i>Ding Zhao</i></b>, (12):1−29, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>This paper presents a comprehensive benchmarking suite tailored to offline safe reinforcement learning (RL) challenges, aiming to foster progress in the development and evaluation of safe learning algorithms in both the training and deployment phases. Our benchmark suite contains three packages: 1) expertly crafted safe policies, 2) D4RL-styled datasets along with environment wrappers, and 3) high-quality offline safe RL baseline implementations. We feature a methodical data collection pipeline powered by advanced safe RL algorithms, which facilitates the generation of diverse datasets across 38 popular safe RL tasks, from robot control to autonomous driving. We further introduce an array of data post-processing filters, capable of modifying each dataset’s diversity, thereby simulating various data collection conditions. Additionally, we provide elegant and extensible implementations of prevalent offline safe RL algorithms to accelerate research in this area. Through extensive experiments with over 50000 CPU and 800 GPU hours of computations, we evaluate and compare the performance of these baseline algorithms on the collected datasets, offering insights into their strengths, limitations, and potential areas of improvement. Our benchmarking framework serves as a valuable resource for researchers and practitioners, facilitating the development of more robust and reliable offline safe RL solutions in safety-critical applications. The benchmark website is available at www.offline-saferl.org.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-12.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-12.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        VALUED - Vision and Logical Understanding Evaluation Dataset
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Soumadeep Saha</i></b>,
+              <b><i>Saptarshi Saha</i></b>,
+              <b><i>Utpal Garain</i></b>, (13):1−18, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Starting with early successes in computer vision tasks, deep learning based techniques have since overtaken state of the art approaches in a multitude of domains. However, it has been demonstrated time and again that these techniques fail to capture semantic context and logical constraints, instead often relying on spurious correlations to arrive at the answer. Since application of deep learning techniques to critical scenarios are dependent on adherence to domain specific constraints, several attempts have been made to address this issue. One limitation holding back a thorough exploration of this area, is a lack of suitable datasets which feature a rich set of rules. In order to address this, we present the VALUE (Vision And Logical Understanding Evaluation) Dataset, consisting of 200,000 annotated images and an associated rule set, based on the popular board game - chess. The curated rule set considerably constrains the set of allowable predictions, and are designed to probe key semantic abilities like localization and enumeration. Alongside standard metrics, additional metrics to measure performance with regards to logical consistency is presented. We analyze several popular and state of the art vision models on this task, and s.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-13.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-13.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        On Minimizing the Training Set Fill Distance in Machine Learning Regression
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Paolo Climaco</i></b>,
+              <b><i>Jochen Garcke</i></b>, (14):1−36, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>For regression tasks one often leverages large datasets for training predictive machine learning models. However, using large datasets may not be feasible due to computational limitations or high data labelling costs. Therefore, suitably selecting small training sets from large pools of unlabelled data points is essential to maximize model performance while maintaining efficiency. In this work, we study Farthest Point Sampling (FPS), a data selection approach that aims to minimize the fill distance of the selected set. We derive an upper bound for the maximum expected prediction error, conditional to the location of the unlabelled data points, that linearly depends on the training set fill distance. For empirical validation, we perform experiments using two regression models on three datasets. We empirically show that selecting a training set by aiming to minimize the fill distance, thereby minimizing our derived bound, significantly reduces the maximum prediction error of various regression models, outperforming alternative sampling approaches by a large margin. Furthermore, we show that selecting training sets with the FPS can also increase model stability for the specific case of Gaussian kernel regression approaches.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-14.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-14.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        FedAIoT: A Federated Learning Benchmark for Artificial Intelligence of Things
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Samiul Alam</i></b>,
+              <b><i>Tuo Zhang</i></b>,
+              <b><i>Tiantian Feng</i></b>,
+              <b><i>Hui Shen</i></b>,
+              <b><i>Zhichao Cao</i></b>,
+              <b><i>Dong Zhao</i></b>,
+              <b><i>Jeonggil Ko</i></b>,
+              <b><i>Kiran Somasundaram</i></b>,
+              <b><i>Shrikanth Narayanan</i></b>,
+              <b><i>Salman Avestimehr</i></b>,
+              <b><i>Mi Zhang</i></b>, (15):1−23, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>There is a significant relevance of federated learning (FL) in the realm of Artificial Intelligence of Things (AIoT). However, most of existing FL works are not conducted on datasets collected from authentic IoT devices that capture unique modalities and inherent challenges of IoT data. To fill this critical gap, in this work, we introduce FedAIoT, an FL benchmark for AIoT. FedAIoT includes eight datasets collected from a wide range of IoT devices. These datasets cover unique IoT modalities and target representative applications of AIoT. FedAIoT also includes a unified end-to-end FL framework for AIoT that simplifies benchmarking the performance of the datasets. Our benchmark results shed light on the opportunities and challenges of FL for AIoT. We hope FedAIoT could serve as an invaluable resource to foster advancements in the important field of FL for AIoT. The repository of FedAIoT is maintained at https://github.com/AIoT-MLSys-Lab/FedAIoT.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-15.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-15.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Forecasting Electric Vehicle Charging Station Occupancy: Smarter Mobility Data Challenge
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Yvenn Amara-Ouali</i></b>,
+              <b><i>Yannig Goude</i></b>,
+              <b><i>Nathan Doumèche</i></b>,
+              <b><i>Pascal Veyret</i></b>,
+              <b><i>Alexis Thomas</i></b>,
+              <b><i>Daniel Hebenstreit</i></b>,
+              <b><i>Thomas Wedenig</i></b>,
+              <b><i>Arthur Satouf</i></b>,
+              <b><i>Aymeric Jan</i></b>,
+              <b><i>Yannick Deleuze</i></b>,
+              <b><i>Paul Berhaut</i></b>,
+              <b><i>Sebastien Treguer</i></b>, (16):1−27, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>The transportation sector is a major contributor to greenhouse gas emissions in Europe. Shifting to electric vehicles (EVs) powered by a low-carbon energy mix could reduce carbon emissions. To support electric mobility, a better understanding of EV charging behaviours at different spatial and temporal resolutions is required, resulting in more accurate forecasting models. For instance, it would help users getting real-time parking recommendations, networks operators planning maintenance schedules, and investors deciding where to build new stations. In this context, the Smarter Mobility Data Challenge has focused on the development of forecasting models to predict EV charging station occupancy. This challenge involved analysing a dataset of 91 charging stations across four geographical areas over seven months in 2020-2021. The forecasts were evaluated at three spatial levels (individual stations, areas regrouping stations by neighborhoods and the global level of all the stations in Paris), thus capturing the different spatial information relevant to the various use cases. The results uncover meaningful patterns in EV usage and highlight the potential of this dataset to accurately predict EV charging behaviors. This open dataset addresses many real-world challenges associated with time series, such as missing values, non-stationarity and spatio-temporal correlations. Access to the dataset, code and benchmarks are available at https://gitlab.com/smarter-mobility-data-challenge/tutorials to foster future research.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-16.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-16.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Deep Neural Network Benchmarks for Selective Classification
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Andrea Pugnana</i></b>,
+              <b><i>Lorenzo Perini</i></b>,
+              <b><i>Jesse Davis</i></b>,
+              <b><i>Salvatore Ruggieri</i></b>, (17):1−58, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>With the increasing deployment of machine learning models in many socially-sensitive tasks, there is a growing demand for reliable and trustworthy predictions. One way to accomplish these requirements is to allow a model to abstain from making a prediction when there is a high risk of making an error. This requires adding a selection mechanism to the model, which selects those examples for which the model will provide a prediction. The selective classification framework aims to design a mechanism that balances the fraction of rejected predictions (i.e., the proportion of examples for which the model does not make a prediction) versus the improvement in predictive performance on the selected predictions. Multiple selective classification frameworks exist, most of which rely on deep neural network architectures. However, the empirical evaluation of the existing approaches is still limited to partial comparisons among methods and settings, providing practitioners with little insight into their relative merits. We fill this gap by benchmarking 18 baselines on a diverse set of 44 datasets that includes both image and tabular data.  Moreover, there is a mix of binary and multiclass tasks. We evaluate these approaches using several criteria, including selective error rate, empirical coverage, distribution of rejected instance’s classes, and performance on out-of-distribution instances. The results indicate that there is not a single clear winner among the surveyed baselines, and the best method depends on the users’ objectives.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-17.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-17.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Potion: Towards Poison Unlearning
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Stefan Schoepf</i></b>,
+              <b><i>Jack Foster</i></b>,
+              <b><i>Alexandra Brintrup</i></b>, (18):1−31, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Adversarial attacks by malicious actors on machine learning systems, such as introducing poison triggers into training datasets, pose significant risks. The challenge in resolving such an attack arises in practice when only a subset of the poisoned data can be identified. This necessitates the development of methods to remove, i.e. unlearn, poison triggers from already trained models with only a subset of the poison data available. The requirements for this task significantly deviate from privacy-focused unlearning where all of the data to be forgotten by the model is known. Previous work has shown that the undiscovered poisoned samples lead to a failure of established unlearning methods, with only one method, Selective Synaptic Dampening (SSD), showing limited success. Even full retraining, after the removal of the identified poison, cannot address this challenge as the undiscovered poison samples lead to a reintroduction of the poison trigger in the model. Our work addresses two key challenges to advance the state of the art in poison unlearning. First, we introduce a novel outlier-resistant method, based on SSD, that significantly improves model protection and unlearning performance. Second, we introduce Poison Trigger Neutralisation (PTN) search, a fast, parallelisable, hyperparameter search that utilises the characteristic unlearning versus model protection trade-off to find suitable hyperparameters in settings where the forget set size is unknown and the retain set is contaminated. We benchmark our contributions using ResNet-9 on CIFAR10 and WideResNet-28x10 on CIFAR100 with 0.2%, 1%, and 2% of the data poisoned and discovery shares ranging from a single sample to 100%. Experimental results show that our method heals 93.72% of poison compared to SSD with 83.41% and full retraining with 40.68%. We achieve this while also lowering the average model accuracy drop caused by unlearning from 5.68% (SSD) to 1.41% (ours).  We further show the generalisation capabilities of our method on additional poison types with a Vision Transformer and a significantly larger dataset using ILSVRC Imagenet.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-18.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-18.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        ComPile: A Large IR Dataset from Production Sources
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Aiden Grossman</i></b>,
+              <b><i>Ludger Paehler</i></b>,
+              <b><i>Konstantinos Parasyris</i></b>,
+              <b><i>Tal Ben-Nun</i></b>,
+              <b><i>Jacob Hegna</i></b>,
+              <b><i>William S. Moses</i></b>,
+              <b><i>Jose M Monsalve Diaz</i></b>,
+              <b><i>Mircea Trofin</i></b>,
+              <b><i>Johannes Doerfert</i></b>, (19):1−33, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Code is increasingly becoming a core data modality of modern machine learning research impacting not only the way we write codewith conversational agents like OpenAI’s ChatGPT, Google’s Bard, or Anthropic’s Claude, the way we translate code from one languageinto another, but also the compiler infrastructure underlying the language. While modeling approaches may vary and representations differ,the targeted tasks often remain the same within the individual classes of models. Yet, relying solely on the ability of modern models to extractinformation from unstructured code does not take advantage of 70 years of programming language and compiler development by not utilizing the structure inherent to programs in the data collection. This detracts from the performance of models working over a tokenized representation of input code and precludes the use of these models in the compiler itself. To work towards the first intermediaterepresentation (IR) based models, we fully utilize the LLVM compiler infrastructure, shared by a number of languages, to generatea T Llama 2 token dataset of LLVM IR. We generated this dataset from programming languages built on the shared LLVMinfrastructure, including Rust, Swift, Julia, and C/C++, by hooking into LLVM code generation either through the language’s packagemanager or the compiler directly to extract the dataset of intermediate representations from production grade programs.Statistical analysis proves the utility of our dataset not only for large language model training, but also for the introspection into the code generation process itself as well as for training of machine-learned compiler components.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-19.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-19.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Benchmarking Edge Regression on Temporal Networks
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Muberra Ozmen</i></b>,
+              <b><i>Florence Regol</i></b>,
+              <b><i>Thomas Markovich</i></b>, (20):1−28, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Benchmark datasets and task definitions in temporal graph learning are limited to dynamic node classification and future link prediction. In this paper, we consider the task of edge regression on temporal graphs, where the data is constructed from sequence of interactions between entities. Upon investigating graph benchmarking platforms, we observed that the existing open source datasets do not provide the necessary information to construct temporal edge regression tasks. To address this gap, we propose four datasets that naturally lend themselves to meaningful temporal edge regression tasks. We evaluate the performance of a set of method based on popular graph learning algorithms in addition to simple baselines such as vertex-based moving average. Processed versions of proposed datasets are accessible through this repository: huggingface.co/cash-app-inc.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-20.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-20.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        On Catastrophic Inheritance of Large Foundation Models
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Hao Chen</i></b>,
+              <b><i>Bhiksha Raj</i></b>,
+              <b><i>Xing Xie</i></b>,
+              <b><i>Jindong Wang</i></b>, (21):1−33, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Large foundation models (LFMs) are claiming incredible performances. Yet great concerns have been raised about their mythic and uninterpreted potentials not only in machine learning, but also in various other disciplines. In this position paper, we propose to identify a neglected issue deeply rooted in LFMs: Catastrophic Inheritance, describing the weaknesses and limitations inherited from biased large-scale pre-training data to behaviors of LFMs on the downstream tasks, including samples that are corrupted, long-tailed, noisy, out-of-distributed, to name a few. Such inheritance can potentially cause catastrophes to downstream applications, such as bias, lack of generalization, deteriorated performance, security vulnerability, privacy leakage, and value misalignment. We discuss the challenges behind this issue and propose ``UIM’’, a framework to understand the catastrophic inheritance of LFMs from both pre-training and downstream adaptation, interpret the implications of catastrophic inheritance on downstream tasks, and how to mitigate it. UIM aims to unite both the machine learning and social sciences communities for more responsible and promising AI development and deployment.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-21.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-21.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        When is Off-Policy Evaluation (Reward Modeling) Useful in Contextual Bandits? A Data-Centric Perspective
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Hao Sun</i></b>,
+              <b><i>Alex James Chan</i></b>,
+              <b><i>Nabeel Seedat</i></b>,
+              <b><i>Alihan Hüyük</i></b>,
+              <b><i>Mihaela van der Schaar </i></b>, (22):1−36, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Evaluating the value of a hypothetical target policy with only a logged dataset is important but challenging. On the one hand, it brings opportunities for safe policy improvement under high-stakes scenarios like clinical guidelines. On the other hand, such opportunities raise a need for precise off-policy evaluation (OPE). While previous work on OPE focused on improving the algorithm in value estimation, in this work, we emphasize the importance of the offline dataset, hence putting forward a data-centric framework for evaluating OPE problems.We propose DataCOPE, a data-centric framework for evaluating OPE in the logged contextual bandit setting, that answers the questions of whether and to what extent we can evaluate a target policy given a dataset. DataCOPE(1) forecasts the overall performance of OPE algorithms without access to the environment, which is especially useful before real-world deployment where evaluating OPE is impossible;(2) identifies the sub-group in the dataset where OPE can be inaccurate;(3) permits evaluations of datasets or data-collection strategies for OPE problems.Our empirical analysis of DataCOPE in the logged contextual bandit settings using healthcare datasets confirms its ability to evaluate both machine-learning and human expert policies like clinical guidelines.Finally, we apply DataCOPE to the task of reward modeling in Large Language Model alignment to demonstrate its scalability in real-world applications.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v01-22.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v01-22.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+</ul>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+
+<footer class="site-footer">
+  <div class="wrapper">
+    <p>This site last compiled Sun, 07 Dec 2025 21:47:47 +0000</p>
+      <div class="footer-left"><i><a href="https://github.com/mlr-datasets">Github Account</a></i>
+      </div>
+      <div class="footer-right"><a href="https://twitter.com/MLResearchPress"><i class="icon-twitter"></i>&nbsp;MLResearchPress</a></div>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+
+</html>

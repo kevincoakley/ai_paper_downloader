@@ -5,6 +5,7 @@ from collections.abc import Sequence
 
 CONFERENCE_CHOICES = (
     "AAAI",
+    "DMLR",
     "ICLR",
     "ICML",
     "IJCAI",

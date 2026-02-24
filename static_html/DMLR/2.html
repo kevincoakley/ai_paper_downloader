@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Search Engine Info --><!-- Solution from http://stackoverflow.com/questions/31593297/using-execcommand-javascript-to-copy-hidden-text-to-clipboard -->
+<script src="https://data.mlr.press/assets/js/copy_input.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://data.mlr.press/assets/js/download.js"></script>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Volume 2 | Data-centric Machine Learning Research</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Volume 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is the second volume." />
+<meta property="og:description" content="This is the second volume." />
+<link rel="canonical" href="https://data.mlr.press/volumes/02.html" />
+<meta property="og:url" content="https://data.mlr.press/volumes/02.html" />
+<meta property="og:site_name" content="Data-centric Machine Learning Research" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-07T21:47:47+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Volume 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-07T21:47:47+00:00","datePublished":"2025-12-07T21:47:47+00:00","description":"This is the second volume.","headline":"Volume 2","mainEntityOfPage":{"@type":"WebPage","@id":"https://data.mlr.press/volumes/02.html"},"url":"https://data.mlr.press/volumes/02.html"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- Style Info -->
+  <link rel="stylesheet" type="text/css" href="https://data.mlr.press/assets/css/dmlr.css" />
+  <style>.hero-text {
+    color: #303030;
+  }</style>
+
+  <!-- Icon Info -->
+  <link rel="shortcut icon" href="https://data.mlr.press/assets/images/favicon-dmlr.ico" type="image/x-icon">
+  <link rel="icon" href="https://data.mlr.press/assets/images/favicon-dmlr.ico" type="image/x-icon">
+
+  <!-- Feed Info --><link type="application/atom+xml" rel="alternate" href="https://data.mlr.press/feed.xml" title="Data-centric Machine Learning Research" /><!-- Scripting info --><!-- Solution from http://stackoverflow.com/questions/31593297/using-execcommand-javascript-to-copy-hidden-text-to-clipboard -->
+<script src="https://data.mlr.press/assets/js/copy_input.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://data.mlr.press/assets/js/download.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSHDZCVT9S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NSHDZCVT9S');
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+          autoNumber: "AMS"
+        }
+      },
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script  async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <!-- User custom header -->
+</head>
+
+
+
+
+
+
+<body>
+
+
+<header class="site-header">
+  <div class="wrapper">
+    
+
+
+<div class="hero-image">
+  <div class="hero-text">
+    <a id="top" href="/" target="_top"><img src="/assets/images/logo-dmlr.svg" alt="[ Logo]"></a>
+    Data-centric Machine Learning Research
+  </div>
+</div>
+
+
+    <nav class="site-nav">
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger">
+  <span class="menu-icon"><svg viewBox="0 0 18 15" width="18px" height="15px">
+  <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+</svg>
+</span>
+  </label>
+  <div class="trigger" style="line-height:40px;">
+    <a class="page-link" href="/">Home</a>
+    <a class="page-link" href="/submissions.html">Submission</a>
+    <a class="page-link" href="/special-track.html">Special Track</a>
+    <a class="page-link" href="/papers.html">Papers</a>
+    <a class="page-link" href="/reviewer-guidelines.html">Reviewer Guidelines</a>
+    <a class="page-link" href="/editor-guidelines.html">Editor Guidelines</a>
+    <a class="page-link" href="http://tmlr.org/">TMLR</a>
+    <a class="page-link" href="http://proceedings.mlr.press/">PMLR</a> 
+    <a class="page-link" href="http://www.jmlr.org/">JMLR</a> 
+    <a class="page-link" href="http://www.jmlr.org/mloss">MLOSS</a>
+  </div>
+</nav>
+
+
+
+  </div>
+</header>
+
+
+
+
+
+<main class="page-content" aria-label="Content"><div class="wrapper">
+
+
+<p style="text-align:right">[<a href="https://github.com/mlr-datasets/mlr-datasets.github.io/edit/master/_volumes/02.md" target="_blank" onclick="ga('send', 'event', 'Edit Page', 'Edit', 'https://github.com/mlr-datasets/mlr-datasets.github.io/edit/master/_volumes/02.md', 13);">edit</a>]</p>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Volume 2</h1>
+  </header>
+
+  <div class="post-content">
+    <p>This is the second volume.</p>
+
+
+
+
+<ul class="list-papers list-group list-group-flush">
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        The Matrix Reloaded: Towards Counterfactual Group Fairness in Machine Learning
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Mariana Pinto</i></b>,
+              <b><i>Andre V Carreiro</i></b>,
+              <b><i>Pedro Madeira</i></b>,
+              <b><i>Alberto Lopez</i></b>,
+              <b><i>Hugo Gamboa</i></b>, (1):1−55, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>In today’s data-driven world, addressing bias is essential to minimize discriminatory outcomes and work toward fairness in machine learning models. This paper presents a novel data-centric framework for bias analysis, harnessing the power of counterfactual reasoning. We detail a process for generating plausible counterfactuals suited for group evaluation, using probabilistic distributions and optionally incorporating domain knowledge, as a more efficient alternative to computationally intensive generative models.Additionally, we introduce the Counterfactual Confusion Matrix, from which we derive a suite of metrics that provide a comprehensive view of a model’s behaviour under counterfactual conditions. These metrics offer unique insights into the model’s resilience and susceptibility to changes in sensitive attributes, such as sex or race. We demonstrate their utility and complementarity with standard group fairness metrics through experiments on real-world datasets. Our results show that domain knowledge is key, and that our metrics can reveal subtle biases that traditional bias evaluation strategies may overlook, providing a more nuanced understanding of potential model bias.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-1.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-1.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Properties of Alternative Data for Fairer Credit Risk Predictions
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Jung Youn Lee</i></b>,
+              <b><i>Joonhyuk Yang</i></b>, (2):1−27, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>In the consumer lending market, women tend to have lower access to credit than men, despite evidence suggesting that women are better at repaying their debts. This study explores the potential impact of leveraging alternative data, which traditionally has not been used by financial institutions, on credit risk predictions between men and women. By leveraging unique data on individuals’ credit card default behaviors and their purchase behaviors at a supermarket, we simulate a credit card issuer’s credit scoring process. In the absence of supermarket data, the algorithm’s predictive accuracy for women is about 2.3% lower than that for men. We then integrate data from each of the 410 product markets within the supermarket into the algorithm and measure the changes in the gender gap in predictive accuracy. We find a wide variation in both direction and magnitude in the incremental gender gap, ranging from -142% to 70% compared to the baseline. These findings highlight that leveraging alternative data from a non-financial domain can lead to fairer credit outcomes, but only under certain conditions. We characterize the conditions by identifying two data properties: the capacity to proxy gender and the relative amount of creditworthiness signals data provide for each gender.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-2.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-2.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        OpenOOD v1.5: Enhanced Benchmark for Out-of-Distribution Detection
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Jingyang Zhang</i></b>,
+              <b><i>Jingkang Yang</i></b>,
+              <b><i>Pengyun Wang</i></b>,
+              <b><i>Haoqi Wang</i></b>,
+              <b><i>Yueqian Lin</i></b>,
+              <b><i>Haoran Zhang</i></b>,
+              <b><i>Yiyou Sun</i></b>,
+              <b><i>Xuefeng Du</i></b>,
+              <b><i>Yixuan Li</i></b>,
+              <b><i>Ziwei Liu</i></b>,
+              <b><i>Yiran Chen</i></b>,
+              <b><i>Hai Li</i></b>, (3):1−32, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Out-of-Distribution (OOD) detection is critical for the reliable operation of open-world intelligent systems. Despite the emergence of an increasing number of OOD detection methods, the evaluation inconsistencies present challenges for tracking the progress in this field. OpenOOD v1 initiated the unification of the OOD detection evaluation but faced limitations in scalability and scope. In response, this paper presents OpenOOD v1.5, a significant improvement from its predecessor that ensures accurate and standardized evaluation of OOD detection methodologies at large scale. Notably, OpenOOD v1.5 extends its evaluation capabilities to large-scale data sets (ImageNet) and foundation models (e.g., CLIP and DINOv2), and expands its scope to investigate full-spectrum OOD detection which considers semantic and covariate distribution shifts at the same time. This work also contributes in-depth analysis and insights derived from comprehensive experimental results, thereby enriching the knowledge pool of OOD detection methodologies. With these enhancements, OpenOOD v1.5 aims to drive advancements and offer a more robust and comprehensive evaluation benchmark for OOD detection research.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-3.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-3.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Evaluating Durability: Benchmark Insights into Image and Text Watermarking
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Jielin Qiu</i></b>,
+              <b><i>William Han</i></b>,
+              <b><i>Xuandong Zhao</i></b>,
+              <b><i>Shangbang Long</i></b>,
+              <b><i>Christos Faloutsos</i></b>,
+              <b><i>Lei Li</i></b>, (4):1−44, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>As large models become increasingly prevalent, watermarking has emerged as a crucial technology for copyright protection, authenticity verification, and content tracking. The rise of multimodal applications further amplifies the importance of effective watermarking techniques. While watermark robustness is critical for real-world deployment, the current understanding of watermark robustness against various forms of corruption remains limited. Our study evaluates watermark robustness in both image and text domains, testing against an extensive set of 100 image perturbations and 63 text perturbations. The results reveal significant vulnerabilities in contemporary watermarking approaches - detection accuracy deteriorates by more than 50% under common perturbations, highlighting a critical gap between current capabilities and practical requirements. These findings emphasize the urgent need for more robust watermarking methods that can withstand real-world disturbances. Our project website can be found at <a href="https://mmwatermark-robustness.github.io/">https://mmwatermark-robustness.github.io/</a>.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-4.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-4.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        ATCO2 corpus: A Large-Scale Dataset for Research on Automatic Speech Recognition and Natural Language Understanding of Air Traffic Control Communications
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Juan Pablo Zuluaga Gomez</i></b>,
+              <b><i>Karel Veselý</i></b>,
+              <b><i>Igor Szöke</i></b>,
+              <b><i>Alexander Blatt</i></b>,
+              <b><i>Petr Motlicek</i></b>,
+              <b><i>Martin Kocour</i></b>,
+              <b><i>Khalid Choukri</i></b>,
+              <b><i>Iuliia Nigmatulina</i></b>,
+              <b><i>Claudia Cevenini</i></b>,
+              <b><i>Allan Tart</i></b>,
+              <b><i>Jan Cernocký</i></b>,
+              <b><i>Dietrich Klakow</i></b>, (5):1−45, 2024.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Personal assistants, automatic speech recognizers and dialogue understanding systems are becoming more critical in our interconnected digital world. A clear example is air traffic control (ATC) communications. ATC aims at guiding aircraft and controlling the airspace in a safe and optimal manner. These voice-based dialogues are carried between an air traffic controller (ATCO) and pilots via very-high frequency radio channels. In order to incorporate these novel technologies into ATC, large-scale annotated datasets are required to develop the data-driven AI systems. Two examples are automatic speech recognition (ASR) and natural language understanding (NLU).However, ATC is considered a low-resource domain. In this paper, we introduce the ATCO2 corpus, a dataset that aims at fostering research on the challenging ATC field, which has lagged behind due to lack of annotated data. In addition, we also open-source a GitHub repository that contains data preparation and training scripts useful to replicate our baselines related to ASR and NLU.The ATCO2 corpus covers 1) audio and radar data collection and pre-processing, 2) pseudo-transcriptions of speech audio, and 3) extraction of ATC-related named entities. The ATCO2 corpus is split into three subsets: (i) ATCO2-test-set corpus contains 4 hours of ATC speech with manual transcripts and a subset with gold transcriptions for named-entity recognition (callsign, command, value) and speaker role detection. (ii) The ATCO2-test-set-1h corpus is a one-hour open-sourced subset from the 4h test set.ootnote{Free to download, available at:  <a href="https://www.atco2.org/data">https://www.atco2.org/data</a>. (iii) The ATCO2-PL-set corpus consists of 5’281 hours of pseudo-transcribed ATC speech enriched with contextual information (list of relevant n-gram sequences per utterance), speaker turn information, signal-to-noise ratio estimate and English language detection score per sample. The whole ATCO2 corpus is publicly distributed through ELDA catalog (<a href="https://catalog.elra.info/en-us/repository/browse/ELRA-S0484/">https://catalog.elra.info/en-us/repository/browse/ELRA-S0484/</a>). We expect the corpus will foster research on robust ASR and NLU not only in the field of ATC communications but also in the general research community.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-5.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-5.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Constructing Confidence Intervals for “the” Generalization Error – a Comprehensive Benchmark Study
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Hannah Schulz-Kümpel</i></b>,
+              <b><i>Sebastian Felix Fischer</i></b>,
+              <b><i>Roman Hornung</i></b>,
+              <b><i>Anne-Laure Boulesteix</i></b>,
+              <b><i>Thomas Nagler</i></b>,
+              <b><i>Bernd Bischl</i></b>, (6):1−73, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>When assessing the quality of prediction models in machine learning, confidence intervals (CIs) for the generalization error, which measures predictive performance, are a crucial tool. Luckily, there exist many methods for computing such CIs and new promising approaches are continuously being proposed. Typically, these methods combine various resampling procedures, most popular among them cross-validation and bootstrapping, with different variance estimation techniques. Unfortunately, however, there is currently no consensus on when any of these combinations may be most reliably employed and how they generally compare. In this work, we conduct a large-scale study comparing CIs for the generalization error, the first one of such size, where we empirically evaluate 13 different CI methods on a total of 19 tabular regression and classification problems, using seven different inducers and a total of eight loss functions.We give an overview of the methodological foundations and inherent challenges of constructing CIs for the generalization error and provide a concise review of all 13 methods in a unified framework. Finally, the CI methods are evaluated in terms of their relative coverage frequency, width, and runtime. Based on these findings, we can identify a subset of methods that we would recommend.We also publish the datasets as a benchmarking suite on OpenML and our code on GitHub to serve as a basis for further studies.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-6.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-6.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Towards impactful challenges: post-challenge paper, benchmarks and other dissemination actions
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>David Rousseau</i></b>,
+              <b><i>Antoine Marot</i></b>,
+              <b><i>Zhen Xu</i></b>, (7):1−20, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>The conclusion of an AI challenge is not the end of its lifecycle; ensuring a long-lasting impact requires meticulous post-challenge activities. The long-lasting impact also needs to be organised. This chapter covers the various activities after the challenge is formally finished. This work identifies target audiences for post-challenge initiatives and outlines methods for collecting and organizing challenge outputs. The multiple outputs of the challenge are listed, along with the means to collect them. The central part of the chapter is a template for a typical post-challenge paper, including possible graphs and advice on how to turn the challenge into a long-lasting benchmark.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-7.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-7.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        SuperBench: A Super-Resolution Benchmark Dataset for Scientific Machine Learning
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Pu Ren</i></b>,
+              <b><i>N. Benjamin Erichson</i></b>,
+              <b><i>Junyi Guo</i></b>,
+              <b><i>Shashank Subramanian</i></b>,
+              <b><i>Omer San</i></b>,
+              <b><i>Zarija Lukic</i></b>,
+              <b><i>Michael W. Mahoney</i></b>, (8):1−45, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Super-resolution (SR) techniques aim to enhance data resolution, enabling the retrieval of finer details, and improving the overall quality and fidelity of the data representation. There is growing interest in applying SR methods to complex spatiotemporal systems within the Scientific Machine Learning (SciML) community, with the hope of accelerating numerical simulations and/or improving forecasts in weather, climate, and related areas. However, the lack of standardized benchmark datasets for comparing and validating SR methods hinders progress and adoption in SciML. To address this, we introduce SuperBench (<a href="https://github.com/erichson/SuperBench">https://github.com/erichson/SuperBench</a>), the first benchmark dataset featuring high-resolution datasets (up to  dimensions), including data from fluid flows, cosmology, and weather. Here, we focus on validating spatial SR performance from data-centric and physics-preserved perspectives, as well as assessing robustness to data degradation tasks. While deep learning-based SR methods (developed in the computer vision community) excel on certain tasks, despite relatively limited prior physics information, we identify limitations of these methods in accurately capturing intricate fine-scale features and preserving fundamental physical properties and constraints in scientific data. These shortcomings highlight the importance and subtlety of incorporating domain knowledge into ML models. We anticipate that SuperBench will help to advance SR methods for science.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-8.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-8.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        V-LoL: A Diagnostic Dataset for Visual Logical Learning
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Lukas Helff</i></b>,
+              <b><i>Wolfgang Stammer</i></b>,
+              <b><i>Hikaru Shindo</i></b>,
+              <b><i>Devendra Singh Dhami</i></b>,
+              <b><i>Kristian Kersting</i></b>, (9):1−41, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Despite the successes of recent developments in visual AI, different shortcomings still exist; from missing exact logical reasoning, to abstract generalization abilities, to understanding complex and noisy scenes. Unfortunately, existing benchmarks, were not designed to cap- ture more than a few of these aspects. Whereas deep learning datasets focus on visually complex data but simple visual reasoning tasks, inductive logic datasets involve complex logical learning tasks, however, lack the visual component. To address this, we propose the diagnostic visual logical learning dataset, V-LoL, that seamlessly combines visual and logical challenges. Notably, we introduce the first instantiation of V-LoL, V-LoL-Train, – a visual rendition of a classic benchmark in symbolic AI, the Michalski train problem. By incorporating intricate visual scenes and flexible logical reasoning tasks within a versatile framework, V-LoL-Train provides a platform for investigating a wide range of visual logical learning challenges. We evaluate a variety of AI systems including traditional symbolic AI, neural AI, as well as neuro-symbolic AI. Our evaluations demonstrate that even SOTA AI faces difficulties in dealing with visual logical learning challenges, highlighting unique advantages and limitations of each methodology. Overall, V-LoL opens up new avenues for understanding and enhancing current abilities in visual logical learning for AI systems.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-9.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-9.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Challenge design roadmap
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Hugo Jair Escalante</i></b>,
+              <b><i>Isabelle Guyon</i></b>,
+              <b><i>Addison Howard</i></b>,
+              <b><i>Walter Reade</i></b>,
+              <b><i>Sebastien Treguer</i></b>, (10):1−42, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>This document serves as a comprehensive guide for designing and organizing effective challenges, particularly within the domains of machine learning and artificial intelligence. It provides detailed guidelines on every phase of the process, from conception and execution to post-challenge analysis. Challenges function as motivational mechanisms that drive participants to address significant tasks. Consequently, organizers must establish rules that fulfill objectives beyond mere participant engagement. These objectives include solving real-world problems, advancing scientific or technical fields, facilitating discoveries, educating the public, providing platforms for skill development, and recruiting new talent. The creation of a challenge is analogous to product development; it requires enthusiasm, rigorous testing, and aims to attract participants. The process commences with a comprehensive plan, such as a challenge proposal submitted for peer review at an international conference. This document presents guidelines for developing such a robust challenge plan, ensuring it is both engaging and impactful.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-10.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-10.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Data Acquisition: A New Frontier in Data-centric AI
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Lingjiao Chen</i></b>,
+              <b><i>Bilge Acun</i></b>,
+              <b><i>Newsha Ardalani</i></b>,
+              <b><i>Yifan Sun</i></b>,
+              <b><i>Feiyang Kang</i></b>,
+              <b><i>Hanrui Lyu</i></b>,
+              <b><i>Yongchan Kwon</i></b>,
+              <b><i>Ruoxi Jia</i></b>,
+              <b><i>Carole-Jean Wu</i></b>,
+              <b><i>Matei Zaharia</i></b>,
+              <b><i>James Zou</i></b>, (11):1−19, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>As Machine Learning (ML) systems continue to grow, the demand for relevant and comprehensive datasets becomes imperative. There is limited study on the challenges of data acquisition due to ad-hoc processes and lack of consistent methodologies. We first present an investigation of current data marketplaces, revealing lack of platforms offering detailed information about datasets, transparent pricing, standardized data formats. With the objective of inciting participation from the data-centric AI community, we then introduce the DAM challenge, a benchmark to model the interaction between the data providers and acquirers in a data marketplace. The benchmark was released as a part of DataPerf Mazumder et al. (2022). Our evaluation of the submitted strategies underlines the need for effective data acquisition strategies in ML.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-11.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-11.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Deep Learning for Accurate Diagnosis of Viral Infections through scRNA-seq Analysis: A Comprehensive Benchmark Study
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Ziwei Yang</i></b>,
+              <b><i>Xuxi Chen</i></b>,
+              <b><i>Biqing Zhu</i></b>,
+              <b><i>Tianlong Chen</i></b>,
+              <b><i>Zhangyang Wang</i></b>, (12):1−19, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Infectious disease diagnostics primarily rely on physicians’ clinical expertise and rapid antigen/antibody tests, a subjective approach prone to errors due to various factors including patient history accuracy and physician experience. To address these challenges, we propose a biological evidence-based diagnostic tool using deep learning to analyze patient-derived single-cell RNA sequencing (scRNA-seq) profiles from blood samples. scRNA-seq provides high-resolution gene expression data at the single-cell level, capturing unique transcriptional signatures and immunological responses induced by different viral infections. In this work, we conducted the first-of-its-kind benchmark study to evaluate five computational models, including four deep learning-based methods (contrastiveVI, scVI, SAVER, scGPT) and PCA as a baseline - trained and evaluated on patient-derived scRNA-seq datasets carefully sourced by us. We assess their efficacy in distinguishing scRNA-seq profiles associated with various viral infections, aiming to identify distinct immunological features representative of each infection. The results demonstrate that contrastiveVI, outperforms other models in all key performance metrics and the visual cluster performance. Furthermore, our research also underscores the substantial influence of batch effects when analyzing scRNA-seq data from multiple sources. Overall, our study successfully demonstrates that deep learning models can accurately identify the type of infection from patient plasma samples based on scRNA-seq profiles, and improve the accuracy and specificity in the diagnosis of infectious diseases. This research contributes to the development of more objective, evidence-based diagnostic methods in the infectious disease domain, potentially reducing diagnostic errors and improving patient outcomes.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-12.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-12.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Text Quality-Based Pruning for Efficient Training of Language Models
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Vasu Sharma</i></b>,
+              <b><i>Karthik Padthe</i></b>,
+              <b><i>Newsha Ardalani</i></b>,
+              <b><i>Kushal Tirumala</i></b>,
+              <b><i>Russell Howes</i></b>,
+              <b><i>Hu Xu</i></b>,
+              <b><i>Po-Yao Huang</i></b>,
+              <b><i>Daniel Li Chen</i></b>,
+              <b><i>Armen Aghajanyan</i></b>,
+              <b><i>Gargi Ghosh</i></b>,
+              <b><i>Luke Zettlemoyer</i></b>, (13):1−13, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>In recent times training Language Models (LMs) have relied on computationally heavy training over massive datasets which makes this training process extremely laborious. In this paper we propose a novel method for numerically evaluating text quality in large unlabelled NLP datasets in a model agnostic manner to assign the text instances a quality score.By proposing the text quality metric, the paper establishes a framework to identify and eliminate low-quality text instances, leading to improved training efficiency for LM models. Experimental results over multiple models and datasets demonstrate the efficacy of this approach, showcasing substantial gains in training effectiveness and highlighting the potential for resource-efficient LM training.For example, we observe an absolute accuracy improvement of 0.9% averaged over 14 downstream evaluation tasks for multiple LM models while using 40% lesser data and training 42% faster when training on the OpenWebText dataset and 0.8% average absolute accuracy improvement while using 20% lesser data and training 21% faster on the Wikipedia dataset.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-13.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-13.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        FlowBench: A Large Scale Benchmark for Flow Simulation over Complex Geometries
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Ronak Tali</i></b>,
+              <b><i>Ali Rabeh</i></b>,
+              <b><i>Cheng-Hau Yang</i></b>,
+              <b><i>Mehdi Shadkhah</i></b>,
+              <b><i>Samundra Karki</i></b>,
+              <b><i>Abhisek Upadhyaya</i></b>,
+              <b><i>Suriya Dhakshinamoorthy</i></b>,
+              <b><i>Marjan Saadati</i></b>,
+              <b><i>Soumik Sarkar</i></b>,
+              <b><i>Adarsh Krishnamurthy</i></b>,
+              <b><i>Chinmay Hegde</i></b>,
+              <b><i>Aditya Balu</i></b>,
+              <b><i>Baskar Ganapathysubramanian</i></b>, (14):1−35, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Simulating fluid flow around arbitrary shapes is key to solving various engineering problems. However, simulating flow physics across complex geometries remains numerically challenging and computationally resource-intensive, particularly when using conventional PDE solvers. Machine learning methods offer attractive opportunities to create fast and adaptable PDE solvers. However, benchmark datasets to measure the performance of such methods are scarce, especially for flow physics across complex geometries. We introduce <strong>FlowBench</strong>, a dataset for neural simulators with over 10K samples, which is currently larger than any publicly available flow physics dataset. <strong>FlowBench</strong> contains flow simulation data across complex geometries (<em>parametric vs. non-parametric</em>), spanning a range of flow conditions (<em>Reynolds number and Grashoff number</em>), capturing a diverse array of flow phenomena (<em>steady vs. transient; forced vs. free convection</em>), and for both 2D and 3D. <strong>FlowBench</strong> contains over 10K data samples, with each sample the outcome of a fully resolved, direct numerical simulation using a well-validated simulator framework designed for modeling transport phenomena in complex geometries. For each sample, we include velocity, pressure, and temperature field data at 3 different resolutions and several summary statistics features of engineering relevance (such as coefficients of lift and drag, and Nusselt numbers). We envision that <strong>FlowBench</strong> will enable evaluating the interplay between complex geometry, coupled flow phenomena, and data sufficiency on the performance of current, and future, neural PDE solvers. We enumerate several evaluation metrics to help rank order the performance of current (and future) neural PDE solvers. We benchmark the performance of several methods, including Fourier Neural Operators (FNO), Convolutional Neural Operators (CNO), DeepONets, and recent foundational models. This dataset (<a href="https://huggingface.co/datasets/BGLab/FlowBench/tree/main">https://huggingface.co/datasets/BGLab/FlowBench/tree/main</a>) will be a valuable resource for developing and evaluating AI-for-science approaches, specifically neural PDE solvers, that model complex fluid dynamics around 2D and 3D objects.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-14.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-14.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        MONSTER: Monash Scalable Time Series Evaluation Repository
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Angus Dempster</i></b>,
+              <b><i>Navid Mohammadi Foumani</i></b>,
+              <b><i>Chang Wei Tan</i></b>,
+              <b><i>Lynn Miller</i></b>,
+              <b><i>Amish Mishra</i></b>,
+              <b><i>Mahsa Salehi</i></b>,
+              <b><i>Charlotte Pelletier</i></b>,
+              <b><i>Daniel F. Schmidt</i></b>,
+              <b><i>Geoffrey I. Webb</i></b>, (15):1−47, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>We introduce MONSTER—the MONash Scalable Time Series Evaluation Repository—a collection of large datasets for time series classification and associated set of classification tasks that jointly define a new time series classification benchmark. The field of time series classification has benefitted from common benchmarks set by the UCR and UEA time series classification repositories. However, the datasets in these benchmarks are small, with median training set sizes of 217 and 255 examples, respectively. In consequence they favour a narrow subspace of models that are optimised to achieve low classification error on a wide variety of smaller datasets, that is, models that minimise variance, and give little weight to computational issues such as scalability. Our hope is to diversify the field by introducing benchmarks using larger datasets. We believe that there is enormous potential for new progress in the field by engaging with the theoretical and practical challenges of learning effectively from larger quantities of data.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-15.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-15.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Chronicling Germany: An Annotated Historical Newspaper Dataset
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Christian Schultze</i></b>,
+              <b><i>Niklas Kerkfeld</i></b>,
+              <b><i>Kara Kuebart</i></b>,
+              <b><i>Princilia Weber</i></b>,
+              <b><i>Moritz Wolter</i></b>,
+              <b><i>Felix Selgert</i></b>, (16):1−29, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>The correct detection of dense article layout and the recognition of characters in historical newspaper pages remains a challenging requirement for Natural Language Processing (NLP) and machine learning applications in the field of digital history. Digital newspaper portals for historic Germany typically provide Optical Character Recognition (OCR) text, albeit of varying quality. Unfortunately, layout information is often missing, limiting this rich source’s scope. Our dataset is designed to enable the training of layout and OCR models for historic German-language newspapers. The Chronicling Germany dataset contains 801 annotated historical newspaper pages from the time period between 1617 and 1933. The paper presents a processing pipeline and establishes baseline results on in- and out-of-domain test data using this pipeline. Both our dataset and the corresponding baseline code are freely available online. This work creates a starting point for future research in the field of digital history and historic German language newspaper processing. Furthermore, it provides the opportunity to study a low-resource task in computer vision.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-16.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-16.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        The FIX Benchmark: Extracting Features Interpretable to eXperts
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Helen Jin</i></b>,
+              <b><i>Shreya Havaldar</i></b>,
+              <b><i>Chaehyeon Kim</i></b>,
+              <b><i>Anton Xue</i></b>,
+              <b><i>Weiqiu You</i></b>,
+              <b><i>Helen Qu</i></b>,
+              <b><i>Marco Gatti</i></b>,
+              <b><i>Daniel A Hashimoto</i></b>,
+              <b><i>Bhuvnesh Jain</i></b>,
+              <b><i>Amin Madani</i></b>,
+              <b><i>Masao Sako</i></b>,
+              <b><i>Lyle Ungar</i></b>,
+              <b><i>Eric Wong</i></b>, (17):1−43, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Feature-based methods are commonly used to explain model predictions, but these methods often implicitly assume that interpretable features are readily available. However, this is often not the case for high-dimensional data, and it can be hard even for domain experts to mathematically specify which features are important. Can we instead automatically extract collections or groups of features that are aligned with expert knowledge? To address this gap, we present FIX (Features Interpretable to eXperts), a benchmark for measuring how well a collection of features aligns with expert knowledge. In collaboration with domain experts, we propose FIXScore, a unified expert alignment measure applicable to diverse real-world settings across cosmology, psychology, and medicine domains in vision, language, and time series data modalities. With FIXScore, we find that popular feature-based explanation methods have poor alignment with expert-specified knowledge, highlighting the need for new methods that can better identify features interpretable to experts.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-17.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-17.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+    <li class="list-group-item">
+      <dl></dl>
+      <dt>
+        Synthetic Datasets for Machine Learning on Spatio-Temporal Graphs using PDEs
+      </dt>
+      <dd>
+          <!--Render authors, if not the last, put a comma at the end-->
+          
+              <b><i>Jost Arndt</i></b>,
+              <b><i>Utku Isil</i></b>,
+              <b><i>Michael Detzel</i></b>,
+              <b><i>Wojciech Samek</i></b>,
+              <b><i>Jackie Ma</i></b>, (18):1−36, 2025.
+        </b>
+      </dd>
+    <details>
+        <summary>Abstract</summary>
+        <I><p>Many physical processes can be expressed through partial differential equations (PDEs).Real-world measurements of such processes are often collected at irregularly distributedpoints in space, which can be effectively represented as graphs; however, there are currentlyonly a few existing datasets. Our work aims to make advancements in the field ofPDE-modeling accessible to the temporal graph machine learning community, while addressingthe data scarcity problem, by creating and utilizing datasets based on PDEs. Inthis work, we create and use synthetic datasets based on PDEs to support spatio-temporalgraph modeling in machine learning for different applications. More precisely, we showcasethree equations to model different types of disasters and hazards in the fields of epidemiology,atmospheric particles, and tsunami waves. Further, we show how such createddatasets can be used by benchmarking several machine learning models on the epidemiologicaldataset. Additionally, we show how pre-training on this dataset can improve modelperformance on real-world epidemiological data. The presented methods enable others tocreate datasets and benchmarks customized to individual requirements. The source codefor our methodology and the three created datasets can be found on github.com/Jostarndt/Synthetic_Datasets_for_Temporal_Graphs.</p>
+</I>
+        
+    </details>
+    <!--Render link to pdf-->
+      <a href="/assets/pdf/v02-18.pdf">[PDF]</a>
+      <!--Click abs, then show the abstract-->
+      
+      <a href="/assets/bib/v02-18.txt">[bib]</a>
+      <p></p>
+    </dl>
+    </li>
+    
+    
+</ul>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+
+<footer class="site-footer">
+  <div class="wrapper">
+    <p>This site last compiled Sun, 07 Dec 2025 21:47:47 +0000</p>
+      <div class="footer-left"><i><a href="https://github.com/mlr-datasets">Github Account</a></i>
+      </div>
+      <div class="footer-right"><a href="https://twitter.com/MLResearchPress"><i class="icon-twitter"></i>&nbsp;MLResearchPress</a></div>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+
+</html>

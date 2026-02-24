@@ -10,6 +10,7 @@ import requests
 from ai_paper_downloader import command_args
 from ai_paper_downloader import generate_safe_filename
 from ai_paper_downloader.parser.aaai import AAAIParser
+from ai_paper_downloader.parser.dmlr import DMLRParser
 from ai_paper_downloader.parser.iclr import ICLRParser
 from ai_paper_downloader.parser.icml import ICMLParser
 from ai_paper_downloader.parser.ijcai import IJCAIParser
@@ -53,6 +54,8 @@ def _create_parser(conference: str, year: str) -> Any:
     """Create the conference-specific parser instance for the requested year."""
     if conference == "AAAI":
         return AAAIParser(f"static_html/{conference}", year)
+    if conference == "DMLR":
+        return DMLRParser(f"static_html/{conference}", year)
     if conference == "JAIR":
         return JAIRParser(f"static_html/{conference}", year)
     if conference == "TMLR":

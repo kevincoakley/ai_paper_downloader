@@ -211,9 +211,48 @@ class ICLRParser:
 
         return papers_metadata
 
+    def parse_2024_plus(self) -> list[dict[str, str]]:
+        """Parse 2024+ ICLR static proceedings pages."""
+        with open(self.html_file_path, "r", encoding="utf-8") as f:
+            soup = BeautifulSoup(f, "html.parser")
+
+        papers_metadata: list[dict[str, str]] = []
+        base_url = "https://proceedings.iclr.cc"
+
+        for paper in soup.find_all("li", class_="conference"):
+            paper_tag = paper if isinstance(paper, Tag) else None
+            if paper_tag is None:
+                continue
+
+            title_link = paper_tag.find("a", attrs={"title": "paper title"}, href=True)
+            if not isinstance(title_link, Tag):
+                continue
+
+            title = title_link.get_text(strip=True)
+            authors_tag = paper_tag.find("i")
+            authors = authors_tag.get_text(strip=True) if authors_tag else "Unknown"
+
+            relative_url = title_link["href"]
+            pdf_url = f"{base_url}{relative_url}".replace("/hash/", "/file/").replace(
+                "-Abstract-Conference.html", "-Paper-Conference.pdf"
+            )
+
+            papers_metadata.append(
+                {
+                    "title": title,
+                    "authors": authors,
+                    "category": "",
+                    "pdf_url": pdf_url,
+                }
+            )
+
+        return papers_metadata
+
     def parse(self) -> list[dict[str, str]]:
         """Dispatch parsing by year and source format."""
-        if self.year >= 2017:
+        if self.year >= 2024:
+            return self.parse_2024_plus()
+        elif self.year >= 2017:
             return self.parse_openreview()
         elif self.year == 2015 or self.year == 2016:
             return self.parse_2015_2016()

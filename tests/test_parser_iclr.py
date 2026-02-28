@@ -79,6 +79,10 @@ def test_parse_dispatch_by_year(monkeypatch, tmp_path):
     sample = tmp_path / "sample.html"
     sample.write_text("<html></html>", encoding="utf-8")
 
+    parser_2024 = ICLRParser(str(sample), "2024")
+    monkeypatch.setattr(parser_2024, "parse_2024_plus", lambda: ["2024_plus"])
+    assert parser_2024.parse() == ["2024_plus"]
+
     parser_2018 = ICLRParser(str(sample), "2018")
     monkeypatch.setattr(parser_2018, "parse_openreview", lambda: ["openreview"])
     assert parser_2018.parse() == ["openreview"]
@@ -90,6 +94,36 @@ def test_parse_dispatch_by_year(monkeypatch, tmp_path):
     parser_2014 = ICLRParser(str(sample), "2014")
     monkeypatch.setattr(parser_2014, "parse_2014", lambda: ["2014"])
     assert parser_2014.parse() == ["2014"]
+
+
+def test_parse_2024_plus_extracts_and_transforms_static_links(tmp_path):
+    html = """
+    <html>
+      <body>
+        <ul>
+          <li class="conference">
+            <a title="paper title" href="/paper_files/paper/2025/hash/000eba875068854d5ff003b1fa534cd6-Abstract-Conference.html">
+              Generalization and Distributed Learning of GFlowNets
+            </a>
+            <i>Tiago Silva, Amauri Souza, Omar Rivasplata, Vikas Garg, Samuel Kaski, Diego Mesquita</i>
+          </li>
+        </ul>
+      </body>
+    </html>
+    """
+    sample = tmp_path / "2025.html"
+    sample.write_text(html, encoding="utf-8")
+
+    parser = ICLRParser(str(sample), "2025")
+
+    assert parser.parse_2024_plus() == [
+        {
+            "title": "Generalization and Distributed Learning of GFlowNets",
+            "authors": "Tiago Silva, Amauri Souza, Omar Rivasplata, Vikas Garg, Samuel Kaski, Diego Mesquita",
+            "category": "",
+            "pdf_url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/000eba875068854d5ff003b1fa534cd6-Paper-Conference.pdf",
+        }
+    ]
 
 
 def test_parse_raises_for_unsupported_year(tmp_path):

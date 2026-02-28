@@ -30,3 +30,4 @@ UV_CACHE_DIR=/tmp/uv-cache uv run black .
 
 ## Notes
 - For ICLR, you need an `openreview_pass.yaml` file with your OpenReview credentials.
+- ICLR years 2024+ are parsed from static HTML files in `static_html/ICLR/`.

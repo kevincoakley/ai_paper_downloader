@@ -71,24 +71,21 @@ class IJCAIParser:
             if not isinstance(section, Tag):
                 continue
 
-            section_title_div = section.find("div", class_="section_title")
+            section_title_div = section.find("div", class_="section_title", recursive=False)
             if section_title_div and section_title_div.find("h3"):
                 track_name = section_title_div.find("h3").get_text(strip=True)
             else:
                 track_name = UNKNOWN_VALUE
 
-            for subsection in section.find_all("div", class_="subsection"):
+            subsections = section.find_all("div", class_="subsection", recursive=False)
+            if not subsections:
+                continue
+
+            for subsection in subsections:
                 if not isinstance(subsection, Tag):
                     continue
 
-                subsection_title_div = subsection.find("div", class_="subsection_title")
-                category = (
-                    subsection_title_div.get_text(strip=True)
-                    if subsection_title_div
-                    else track_name
-                )
-
-                for paper in subsection.find_all("div", class_="paper_wrapper"):
+                for paper in subsection.find_all("div", class_="paper_wrapper", recursive=False):
                     if not isinstance(paper, Tag):
                         continue
 
@@ -118,7 +115,7 @@ class IJCAIParser:
                         {
                             "title": title,
                             "authors": authors,
-                            "category": category,
+                            "category": track_name,
                             "pdf_url": pdf_url,
                         }
                     )

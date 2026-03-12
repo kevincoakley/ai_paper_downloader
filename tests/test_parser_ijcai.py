@@ -40,7 +40,7 @@ def test_parse_new_style_extracts_and_deduplicates(tmp_path):
         {
             "title": "Paper One",
             "authors": "Alice",
-            "category": "NLP",
+            "category": "Main Track",
             "pdf_url": "https://www.ijcai.org/proceedings/2024/papers/1.pdf",
         },
         {
@@ -79,5 +79,58 @@ def test_parse_old_style_handles_main_track_and_h3_categories(tmp_path):
             "authors": "Bob",
             "category": "Reasoning",
             "pdf_url": "https://www.ijcai.org/proceedings/2015/2.pdf",
+        },
+    ]
+
+
+def test_parse_new_style_ignores_container_section_and_uses_track_titles(tmp_path):
+    html = """
+    <html>
+      <body>
+        <div class="section" id="container">
+          <div class="section_title"><h3>Main Track</h3></div>
+          <div class="section" id="main-track">
+            <div class="section_title"><h3>Main Track</h3></div>
+            <div class="subsection">
+              <div class="subsection_title">Agent-based and Multi-agent Systems</div>
+              <div class="paper_wrapper">
+                <div class="title">Track One Paper</div>
+                <div class="authors">Alice</div>
+                <div class="details"><a href="papers/1.pdf">PDF</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="survey-track">
+            <div class="section_title"><h3>Survey Track</h3></div>
+            <div class="subsection">
+              <div class="subsection_title">Survey Subsection</div>
+              <div class="paper_wrapper">
+                <div class="title">Track Two Paper</div>
+                <div class="authors">Bob</div>
+                <div class="details"><a href="papers/2.pdf">PDF</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+    """
+    sample = tmp_path / "2024-nested.html"
+    sample.write_text(html, encoding="utf-8")
+
+    parser = IJCAIParser(str(sample), "2024")
+
+    assert parser.parse() == [
+        {
+            "title": "Track One Paper",
+            "authors": "Alice",
+            "category": "Main Track",
+            "pdf_url": "https://www.ijcai.org/proceedings/2024/papers/1.pdf",
+        },
+        {
+            "title": "Track Two Paper",
+            "authors": "Bob",
+            "category": "Survey Track",
+            "pdf_url": "https://www.ijcai.org/proceedings/2024/papers/2.pdf",
         },
     ]

@@ -101,18 +101,7 @@ def _download_and_record(
             f"[{count + 1}/{num_papers_to_download}] Downloaded: {paper['title']} -> {pdf_file_path}"
         )
 
-        csv_writer.writerow(
-            [
-                args.conference,
-                args.year,
-                safe_filename,
-                paper["title"],
-                paper["authors"],
-                paper["category"],
-                paper["pdf_url"],
-            ]
-        )
-        csv_file.flush()
+        _record_csv_row(args, paper, safe_filename, csv_writer, csv_file)
 
         time.sleep(int(args.seconds_between_downloads))
     except requests.exceptions.RequestException as error:
@@ -122,6 +111,28 @@ def _download_and_record(
         return False
 
     return True
+
+
+def _record_csv_row(
+    args: Namespace,
+    paper: dict[str, str],
+    safe_filename: str,
+    csv_writer: Any,
+    csv_file: TextIO,
+) -> None:
+    """Append one paper metadata row to the CSV output."""
+    csv_writer.writerow(
+        [
+            args.conference,
+            args.year,
+            safe_filename,
+            paper["title"],
+            paper["authors"],
+            paper["category"],
+            paper["pdf_url"],
+        ]
+    )
+    csv_file.flush()
 
 
 def main() -> None:
@@ -164,6 +175,8 @@ def main() -> None:
             pdf_file_path = f"{download_path}/{safe_filename}"
 
             if args.no_download_pdf:
+                _record_csv_row(args, paper, safe_filename, csv_writer, csv_file)
+            else:
                 downloaded = _download_and_record(
                     args,
                     paper,

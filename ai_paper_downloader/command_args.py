@@ -81,7 +81,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--seconds-between-downloads",
         dest="seconds_between_downloads",
         help="The number of seconds to wait between downloading papers",
-        default=1,
+        default=0,
         required=False,
     )
 

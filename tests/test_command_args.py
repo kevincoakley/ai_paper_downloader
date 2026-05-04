@@ -8,16 +8,16 @@ def test_args_defaults():
     assert parsed.year == "2024"
     assert parsed.save_dir == "papers"
     assert parsed.num_papers_to_download == -1
-    assert parsed.no_download_pdf is True
-    assert parsed.seconds_between_downloads == 1
+    assert parsed.no_download_pdf is False
+    assert parsed.seconds_between_downloads == 0
 
 
-def test_no_download_pdf_flag_sets_false():
+def test_no_download_pdf_flag_sets_true():
     parsed = command_args.args(
         ["--conference", "NeurIPS", "--year", "2023", "--no-download-pdf"]
     )
 
-    assert parsed.no_download_pdf is False
+    assert parsed.no_download_pdf is True
 
 
 def test_jair_is_supported_conference_choice():

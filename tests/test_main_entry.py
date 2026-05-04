@@ -47,7 +47,7 @@ def test_main_downloads_pdfs_and_writes_csv(monkeypatch, tmp_path, capsys):
         year="2024",
         save_dir=str(tmp_path),
         num_papers_to_download="-1",
-        no_download_pdf=True,
+        no_download_pdf=False,
         seconds_between_downloads="0",
     )
 
@@ -135,7 +135,7 @@ def test_main_no_download_flag_skips_download_and_csv_rows(
         year="2024",
         save_dir=str(tmp_path),
         num_papers_to_download="-1",
-        no_download_pdf=False,
+        no_download_pdf=True,
         seconds_between_downloads="0",
     )
 
@@ -149,7 +149,7 @@ def test_main_no_download_flag_skips_download_and_csv_rows(
 
     def fail_if_called(*_args, **_kwargs):
         raise AssertionError(
-            "requests.get should not be called when no_download_pdf is False"
+            "requests.get should not be called when no_download_pdf is True"
         )
 
     monkeypatch.setattr(main_entry.requests, "get", fail_if_called)
@@ -161,7 +161,25 @@ def test_main_no_download_flag_skips_download_and_csv_rows(
         rows = list(csv.reader(f))
 
     assert rows == [
-        ["Conference", "Year", "Filename", "Title", "Authors", "Category", "PDF_URL"]
+        ["Conference", "Year", "Filename", "Title", "Authors", "Category", "PDF_URL"],
+        [
+            "ICML",
+            "2024",
+            "P1.pdf",
+            "P1",
+            "A",
+            "C",
+            "https://example.com/1.pdf",
+        ],
+        [
+            "ICML",
+            "2024",
+            "P2.pdf",
+            "P2",
+            "B",
+            "C",
+            "https://example.com/2.pdf",
+        ],
     ]
     assert "Papers Processed: 2" in capsys.readouterr().out
 
@@ -186,7 +204,7 @@ def test_main_logs_failed_download_and_continues(monkeypatch, tmp_path, capsys):
         year="2024",
         save_dir=str(tmp_path),
         num_papers_to_download="-1",
-        no_download_pdf=True,
+        no_download_pdf=False,
         seconds_between_downloads="0",
     )
 

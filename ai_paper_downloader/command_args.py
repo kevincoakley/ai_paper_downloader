@@ -73,7 +73,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--no-download-pdf",
         dest="no_download_pdf",
         help="Don't download the PDFs of the papers",
-        action="store_false",
+        action="store_true",
         required=False,
     )
 

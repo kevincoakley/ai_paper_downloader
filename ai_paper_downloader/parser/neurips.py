@@ -12,6 +12,32 @@ class NeurIPSParser:
         self.year = int(year)
         self.base_url = "https://proceedings.neurips.cc"
 
+    def _build_pdf_url(self, relative_url: str) -> str:
+        """Build a NeurIPS PDF URL from a proceedings abstract URL."""
+        return self.base_url + relative_url.replace("hash", "file").replace(
+            "-Abstract-Conference.html", "-Paper-Conference.pdf"
+        ).replace(
+            "-Abstract-Datasets_and_Benchmarks_Track.html",
+            "-Paper-Datasets_and_Benchmarks_Track.pdf",
+        ).replace(
+            "-Abstract.html", "-Paper.pdf"
+        )
+
+    def _is_conference_paper(self, parent_li: Tag) -> bool:
+        """Return whether a paper list item belongs to the main conference track."""
+        return parent_li.get(
+            "data-track"
+        ) == "conference" or "conference" in parent_li.get("class", [])
+
+    def _extract_authors(self, parent_li: Tag) -> str:
+        """Extract authors from the HTML shape used for the configured year."""
+        if self.year >= 2025:
+            authors_tag = parent_li.find("span", class_="paper-authors")
+        else:
+            authors_tag = parent_li.find("i")
+
+        return authors_tag.text.strip() if authors_tag else "Unknown"
+
     def parse(self) -> list[dict[str, str]]:
         with open(self.html_file_path, "r", encoding="utf-8") as file:
             soup = BeautifulSoup(file, "html.parser")
@@ -27,32 +53,18 @@ class NeurIPSParser:
             if not parent_li:
                 continue
 
-            category = "None"
-
-            if "conference" in parent_li.get("class", []):
-                category = "conference"
-            elif "datasets_and_benchmarks_track" in parent_li.get("class", []):
-                category = "datasets_and_benchmarks_track"
+            if not self._is_conference_paper(parent_li):
+                continue
 
             title = paper.text.strip()
-            authors_tag = parent_li.find("i")
-            authors = authors_tag.text.strip() if authors_tag else "Unknown"
-
-            relative_url = paper["href"]
-            pdf_url = self.base_url + relative_url.replace("hash", "file").replace(
-                "-Abstract-Conference.html", "-Paper-Conference.pdf"
-            ).replace(
-                "-Abstract-Datasets_and_Benchmarks_Track.html",
-                "-Paper-Datasets_and_Benchmarks_Track.pdf",
-            ).replace(
-                "-Abstract.html", "-Paper.pdf"
-            )
+            authors = self._extract_authors(parent_li)
+            pdf_url = self._build_pdf_url(str(paper["href"]))
 
             papers_metadata.append(
                 {
                     "title": title,
                     "authors": authors,
-                    "category": category,
+                    "category": "conference",
                     "pdf_url": pdf_url,
                 }
             )

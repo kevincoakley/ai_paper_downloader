@@ -23,6 +23,12 @@ This downloads PDFs by default. To write metadata without downloading PDFs:
 uv run download_papers.py --conference DMLR --year 2025 --save-dir papers --no-download-pdf
 ```
 
+For NeurIPS metadata only:
+
+```sh
+uv run download_papers.py --conference NeurIPS --year 2025 --save-dir papers --no-download-pdf
+```
+
 See `uv run download_papers.py -h` for all available arguments.
 
 ## Testing
